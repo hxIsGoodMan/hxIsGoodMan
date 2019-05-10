@@ -22,7 +22,7 @@
     <meta name="description" content="Ordinary people's blog, welcome to learn together, common progress.">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Hman Blog</title>
+    <title>nginx 入门教程（一）之 下载运行 + 配置简介 · Hman Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Hman Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">nginx 入门教程（一）之 下载运行 + 配置简介</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">Hman Blog</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            nginx 入门教程（一）之 下载运行 + 配置简介
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="nginx">nginx</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/05/10</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,340 +399,105 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/11/mycat-01/">
-            
-                <span>MYCAT入门（一）之下载、目录解析、根据枚举分片</span>
-        </a>
-        <div class="abstract-content">
-            什么是MYCAT
-一个彻底开源的，面向企业应用开发的大数据库集群
-支持事务、ACID、可以替代MySQL的加强版数据库
-一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群
-一个融合内存缓存技术、NoSQL技术、HDFS大数据的新型SQL Server
-结合传统数据库和新型分布式数据仓库的新一代企业级数据库产品
-一个新颖的数据库中间件产品
-
-MYCAT的前世今生
-MYCAT 是 基于阿里开源的Cobar产品而研发，Cobar的稳定性、可靠性、优秀的架构和性能以及众多成熟的使用案例使得MYCAT一开始就拥有一个很好的起点，站在巨人的肩膀上，我们能看到更远。业界优秀的开源...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/11</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="mycat">mycat</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="what-is-nginx？？"><a href="#what-is-nginx？？" class="headerlink" title="what is nginx？？"></a>what is nginx？？</h2><blockquote>
+<p>   Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。<br>划重点啦~~ 同学们</p>
+<ol>
+<li>nginx 是一款轻量级的Web服务器/反向代理服务器。</li>
+<li>nginx的特点: 占有内存少，并发能力强。</li>
+<li>百度、京东、新浪、网易、淘宝、腾讯 都有使用nginx <br><br>不要 998  不要98 不要9.8<br>只需要几分钟你就能get到 百度、腾讯、淘宝… 互联网大牛的同款Web服务器技术。<br>走过路过不要错过了  ~~     ε=ε=ε=(~￣▽￣)~ </li>
+</ol>
+</blockquote>
+<p><img src="https://ws1.sinaimg.cn/large/8856eac7gy1ff13rwm4bkj207a07o0sp.jpg" alt><br><br><br>源码：<a href="https://trac.nginx.org/nginx/browser" target="_blank" rel="noopener">https://trac.nginx.org/nginx/browser</a><br><br><br>官网：<a href="http://www.nginx.org/" target="_blank" rel="noopener">http://www.nginx.org/</a></p>
+<h2 id="下载以及运行"><a href="#下载以及运行" class="headerlink" title="下载以及运行"></a>下载以及运行</h2><pre><code>下载windows版本 ， 初学还是建议使用windows，后面我会补上一篇linx下安装nginx的教程，敬请期待 🤩。 
+</code></pre><p>这里就用windows为例： </p>
+<ol>
+<li>到官网选择你所需的版本下载（因本人是一个时尚弄潮儿，向来都选择最新的，所以我下载了当前最新的1.15版本(。・∀・)ノ ）</li>
+<li>下载好后，解压后直接运行 nginx.exe。 你会看到一个神秘黑影在你的屏幕一闪而过，别紧张，继续往下看。</li>
+<li>nginx 默认监听的端口号为 80 ， 在运行nginx.exe后，直接在浏览器访问 <a href="http://localhost:80" target="_blank" rel="noopener">http://localhost:80</a> </li>
+</ol>
+<p>&lt;% qnimg 2019/3/image-155463795571520190407195235719.png %&gt;<br><br></p>
+<p>若能看到这个界面，那么恭喜你！！ 你以及成功的运行 nginx了！<br><br></p>
+<p>看到这硬核的  Welcome to nginx！ 没有，这里面 满满的是来自俄罗斯码农的国际问候啊~ ( •̀ ω •́ )✧</p>
+<hr>
+<p>那么，如果你看不到来自俄罗斯码农的问候该怎么办呢？？<br><br>（；´д｀）ゞ 还能怎么办 ，打又打不过 ，喝也喝不赢。 好好找好自身的问题呗~<br><br><br>找到nginx文件夹 &gt; 找到logs文件夹 &gt; 找到 error.log 文件<br>&lt;% qnimg 2019/3/image-155463859396120190407200313263.png %&gt;<br>这里面会记录错误的日志，有问题都找它就对了。 </p>
+<h3 id="Windows下Nginx的启动、停止等命令"><a href="#Windows下Nginx的启动、停止等命令" class="headerlink" title="Windows下Nginx的启动、停止等命令"></a>Windows下Nginx的启动、停止等命令</h3><blockquote>
+<p>在Windows下使用Nginx，我们需要掌握一些基本的操作命令，比如：启动、停止Nginx服务，重新载入Nginx等，下面我就进行一些简单的介绍。</p>
+<p> 1、启动：</p>
+<blockquote>
+<p>F:\nginx-1.15.10&gt;start nginx<br>Or<br>F:\nginx-1.15.10&gt;nginx.exe</p>
+</blockquote>
+<p>2、停止：</p>
+<blockquote>
+<p>F:\nginx-1.15.10&gt;nginx.exe -s stop<br>Or<br>F:\nginx-1.15.10&gt;nginx.exe -s quit<br>注：stop是快速停止nginx，可能并不保存相关信息；quit是完整有序的停止nginx，并保存相关信息。</p>
+</blockquote>
+<p>3、重新载入Nginx：</p>
+<blockquote>
+<p>F:\nginx-1.15.10&gt;nginx.exe -s reload<br>当配置信息修改，需要重新载入这些配置时使用此命令。</p>
+</blockquote>
+<p>4、重新打开日志文件：</p>
+<blockquote>
+<p>F:\nginx-1.15.10&gt;nginx.exe -s reopen</p>
+</blockquote>
+<p>5、查看Nginx版本：</p>
+<blockquote>
+<p>F:\nginx-1.15.10&gt;nginx -v</p>
+</blockquote>
+</blockquote>
+<h2 id="配置文件详解"><a href="#配置文件详解" class="headerlink" title="配置文件详解"></a>配置文件详解</h2><p>nginx  核心的配置文件在conf文件夹中的nginx.conf文件。<br>吃透它，那nginx就是你的俄罗斯 小猫咪了 o(=•ェ•=)m </p>
+<p>nginx.conf  文件结构<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">...             #全局块</span><br><span class="line"></span><br><span class="line">events &#123;         #events块</span><br><span class="line">   ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http      #http块</span><br><span class="line">&#123;</span><br><span class="line">    ...   #http全局块</span><br><span class="line">    server        #server块</span><br><span class="line">    &#123; </span><br><span class="line">        ...       #server全局块</span><br><span class="line">        location [PATTERN]   #location块</span><br><span class="line">        &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">        location [PATTERN] </span><br><span class="line">        &#123;</span><br><span class="line">            ...</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    server</span><br><span class="line">    &#123;</span><br><span class="line">      ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...     #http全局块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>1、全局块：配置影响nginx全局的指令。一般有运行nginx服务器的用户组，nginx进程pid存放路径，日志存放路径，配置文件引入，允许生成worker process数等。</p>
+<p>2、events块：配置影响nginx服务器或与用户的网络连接。有每个进程的最大连接数，选取哪种事件驱动模型处理连接请求，是否允许同时接受多个网路连接，开启多个网络连接序列化等。</p>
+<p>3、http块：可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。如文件引入，mime-type定义，日志自定义，是否使用sendfile传输文件，连接超时时间，单连接请求数等。</p>
+<p>4、server块：配置虚拟主机的相关参数，一个http中可以有多个server。</p>
+<p>5、location块：配置请求的路由，以及各种页面的处理情况。</p>
+<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://pr9vsksei.bkt.clouddn.com/js/jsFile" type="text/javascript">
+<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://pr9vsksei.bkt.clouddn.com/css/cssFile" rel="stylesheet" type="text/css"></script>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/10/mysql-master-slave-01/">
-            
-                <span>mysql5.5 配置 主从</span>
-        </a>
-        <div class="abstract-content">
-            前期准备
-  准备两台主机，装好mysql，注意版本一致。
-
-本机环境如下（主）：
-
-主服务器 ip  ： 192.168.245.1 
-mysql版本    ： 5.5
-系统                 ： win10
-
-虚拟机环境 （从）：
-
-主服务器 ip  ： 192.168.245.129
-mysql版本    ： 5.5
-系统                 ： centos7
-
-
-废话少说，上干货！！
-主配置修改在主服务器上 修改 my.ini （linux下 修改 my.cnf)123456[mysqld]server-id=101     log-bin=mysql...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://hxIsGoodMan.com">Hman</a>
+            </p><p>原文链接：<a href="http://hxIsGoodMan.com/2019/05/10/nginx-init-01/">http://hxIsGoodMan.com/2019/05/10/nginx-init-01/</a>
+            </p><p>发表日期：<a href="http://hxIsGoodMan.com/2019/05/10/nginx-init-01/">May 10th 2019, 11:12:21 pm</a>
+            </p><p>更新日期：<a href="http://hxIsGoodMan.com/2019/05/10/nginx-init-01/">May 10th 2019, 11:56:01 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/10/linux-install-mysql-01/">
-            
-                <span>linux CentOs7 安装 mysql5.5 (压缩包方式)</span>
-        </a>
-        <div class="abstract-content">
-            第一步: 下载
-献上官网地址：http://dev.mysql.com/downloads/mysql/    我这里下载的是5.5版本的然后传到linux中, 可以使用 fileZilla 连接 linux服务器 即可操作其文件目录将压缩包  放到  /app 中 
-
-第二步: 安装1. 进入app文件夹2. 解压 tar3. 重命名 为 mysql123cd /apptar zvxf mysql-5.5.62-linux-glibc2.12-x86_64.tar.gzmv mysql-5.5.62-linux-glibc2.12-x86_64 mysql
-4. 添加/etc/my.c...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="linux">linux</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/10/nginx-init-02/">
-            
-                <span>nginx 入门教程（二）之 配置负载均衡+反向代理</span>
-        </a>
-        <div class="abstract-content">
-            什么是负载均衡
-   负载均衡建立在现有网络结构之上，它提供了一种廉价有效透明的方法扩展网络设备和服务器的带宽、增加吞吐量、加强网络数据处理能力、提高网络的灵活性和可用性。负载均衡（Load Balance）其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。        —来自于百度词条        听不懂度娘的解释？？ 别方，听我的！ (oﾟvﾟ)ノ        什么是负载均衡 ?  就是 100斤砖，你需要从A区 搬到  B区。 一个人搬，累成狗不单止，效率也慢。而且你要是罢工了 (ノ｀Д)ノ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="nginx">nginx</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/10/nginx-init-01/">
-            
-                <span>nginx 入门教程（一）之 下载运行 + 配置简介</span>
-        </a>
-        <div class="abstract-content">
-            what is nginx？？
-   Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。划重点啦~~ 同学们
-
-nginx 是一款轻量级的Web服务器/反向代理服务器。
-nginx的特点: 占有内存少，并发能力强。
-百度、京东、新浪、网易、淘宝、腾讯 都有使用nginx 不要 998  不要98 不要9.8只需要几分钟你就能get到 百度、...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="nginx">nginx</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/10/zookeeper-lock-01/">
-            
-                <span>Zookeeper + Java 实现 分布式锁</span>
-        </a>
-        <div class="abstract-content">
-            1.什么是分布式锁
-分布式锁是控制分布式系统之间同步访问共享资源的一种方式。在分布式系统中，常常需要协调他们的动作。如果不同的系统或是同一个系统的不同主机之间共享了一个或一组资源，那么访问这些资源的时候，往往需要互斥来防止彼此干扰来保证一致性，在这种情况下，便需要使用到分布式锁。 在分布式系统中，常常需要协调他们的动作。如果不同的系统或是同一个系统的不同主机之间共享了一个或一组资源，那么访问这些资源的时候，往往需要互斥来防止彼此干扰来保证一致性，这个时候，便需要使用到分布式锁。
-
-2.Zookeeper 如何实现分布式锁
-分布式锁，这个主要得益于 ZooKeeper 为我们保证了数据的强...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="分布式">分布式</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="zookeeper">zookeeper</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/10/redis-lock-01/">
-            
-                <span>SpringBoot + Redisson 基于redis 实现 分布式锁</span>
-        </a>
-        <div class="abstract-content">
-            
-若对什么是分布式锁，为什么要用分布式锁 有疑问的童鞋，请移步 史上最通俗分布式锁解读，看完不懂算我输   (ง •_•)ง 
-
-本篇主要介绍redis分布式锁的实现方式redis分布式锁的方式有两种：
-
-setNx  12Jedis利用redis的setnx函数 设置锁，设置成功即返回1 失败返回0  业务完成后删除 锁，可设置过期时间防止死锁对比 redisson ，学习难度大，可扩展性差
-
-
-
-redisson 1redisson是redis官网推荐的java语言实现分布式锁的项目。redisson远不止分布式锁，还包括其他一些分布式结构。详情请移步：https://github....
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="redis">redis</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="分布式">分布式</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/10/zookeeper-01/">
-            
-                <span>Zookeeper入门记录--安装，java连接操作节点</span>
-        </a>
-        <div class="abstract-content">
-            安装Zookeeper下载地址： http://zookeeper.apache.org/releases.htmlZooInspector 下载地址: https://issues.apache.org/jira/secure/attachment/12436620/ZooInspector.zip  (zk客户端操作工具)
-下载完成后解压：Zookeeper 只需要进入bin目录 双击打开 zkServer.cmd 即可ZooInspector 需要进入 build文件夹 打开cmd 输入java -jar zookeeper-dev-ZooInspector.jar而后就能看到zo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/10</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Zookeeper">Zookeeper</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/05/09/docker/">
-            
-                <span>docker 简单搭建 java Web环境</span>
-        </a>
-        <div class="abstract-content">
-            1.下载CentOs镜像docker的镜像可以到 https://hub.docker.com/ 中查询将查到的 代码 放入虚拟机中 运行 就会下载 对应的进项了 
-12##centos 拉取代码docker pull centos
-下载完毕后 运行 docker images  若在看到了 centos 这个镜像即为成功
-2.运行镜像，创建容器镜像下载到本地以后，就可以使用Docker运行，通过下面的命令参数启动容器，
-docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
--i：表示以“交互模式”运行容器-t：表示容器启动后会进入其命令行...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/09</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="docker">docker</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
-    
-</div>
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/05/10/nginx-init-02/" title="nginx 入门教程（二）之 配置负载均衡+反向代理">
+                    <div class="nextTitle">nginx 入门教程（二）之 配置负载均衡+反向代理</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/05/10/zookeeper-lock-01/" title="Zookeeper + Java 实现 分布式锁">
+                    <div class="prevTitle">Zookeeper + Java 实现 分布式锁</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -758,6 +584,24 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#what-is-nginx？？"><span class="toc-number">1.</span> <span class="toc-text">what is nginx？？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载以及运行"><span class="toc-number">2.</span> <span class="toc-text">下载以及运行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows下Nginx的启动、停止等命令"><span class="toc-number">2.1.</span> <span class="toc-text">Windows下Nginx的启动、停止等命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件详解"><span class="toc-number">3.</span> <span class="toc-text">配置文件详解</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1027,6 +871,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
 
     <!--单击显示文字-->
