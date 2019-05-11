@@ -17,7 +17,7 @@
     <meta name="renderer" content="webkit">
     <meta name="copyright" content="Hman">
     
-    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    <meta name="keywords" content="hexo,java,码农">
     
     <meta name="description" content="Ordinary people's blog, welcome to learn together, common progress.">
     <meta http-equiv="Cache-control" content="no-cache">
@@ -268,7 +268,7 @@
 
   // callback
   function fontLoaded() {
-    console.log('font loaded');
+   // console.log('font loaded');
     if (document.getElementsByClassName('site-intro-meta')) {
       document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
       document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
@@ -346,16 +346,13 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/05/10/zookeeper-lock-01/">
+        <a class="abstract-title" href="/2019/05/10/zookeeper-01/">
             
-                <span>Zookeeper + Java 实现 分布式锁</span>
+                <span>Zookeeper入门记录--安装，java连接操作节点</span>
         </a>
         <div class="abstract-content">
-            1.什么是分布式锁
-分布式锁是控制分布式系统之间同步访问共享资源的一种方式。在分布式系统中，常常需要协调他们的动作。如果不同的系统或是同一个系统的不同主机之间共享了一个或一组资源，那么访问这些资源的时候，往往需要互斥来防止彼此干扰来保证一致性，在这种情况下，便需要使用到分布式锁。 在分布式系统中，常常需要协调他们的动作。如果不同的系统或是同一个系统的不同主机之间共享了一个或一组资源，那么访问这些资源的时候，往往需要互斥来防止彼此干扰来保证一致性，这个时候，便需要使用到分布式锁。
-
-2.Zookeeper 如何实现分布式锁
-分布式锁，这个主要得益于 ZooKeeper 为我们保证了数据的强...
+            安装Zookeeper下载地址： http://zookeeper.apache.org/releases.htmlZooInspector 下载地址: https://issues.apache.org/jira/secure/attachment/12436620/ZooInspector.zip  (zk客户端操作工具)
+下载完成后解压：Zookeeper 只需要进入bin目录 双击打开 zkServer.cmd 即可ZooInspector 需要进入 build文件夹 打开cmd 输入java -jar zookeeper-dev-ZooInspector.jar而后就能看到zo...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -368,9 +365,7 @@
     
         <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="分布式">分布式</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="zookeeper">zookeeper</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="Zookeeper">Zookeeper</a>
     
 </div>
             
@@ -388,12 +383,6 @@
     
     <div class="social">
         <!-- 
-    
-        
-            
-                <a href="mailto:1076051940@qq.com" class="iconfont-archer email" title="email"></a>
-            
-        
     
         
             
@@ -657,8 +646,6 @@
     
     
     
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 15
@@ -697,12 +684,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/nexus-01/">Nexus 3.x 搭建 maven 私服 以及 上传 下载 jar包</a>
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/nexus-01/">Nexus 3.x 搭建 maven 私服 以及 上传 下载 jar包</a>
         </li>
     
     
@@ -712,12 +699,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
         </li>
     
     
@@ -759,23 +746,27 @@
     
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
         <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+    
+        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
+    
         <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
     
         <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
-        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
-    
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
+    
+        <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
     
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
@@ -783,11 +774,11 @@
     
         <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
         <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     
@@ -828,14 +819,6 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="学习笔记"><span class="iconfont-archer">&#xe60a;</span>学习笔记</span>
     
-        <span class="sidebar-category-name" data-categories="学习笔记/数据库"><span class="iconfont-archer">&#xe60a;</span>学习笔记/数据库</span>
-    
-        <span class="sidebar-category-name" data-categories="学习教程"><span class="iconfont-archer">&#xe60a;</span>学习教程</span>
-    
-        <span class="sidebar-category-name" data-categories="学习笔记/运维"><span class="iconfont-archer">&#xe60a;</span>学习笔记/运维</span>
-    
-        <span class="sidebar-category-name" data-categories="学习笔记/数据库/Linux"><span class="iconfont-archer">&#xe60a;</span>学习笔记/数据库/Linux</span>
-    
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
     <div class="sidebar-categories-list"></div>
@@ -854,6 +837,29 @@ jsonContent:
         if (typeof window.$ === 'undefined')
         {
             console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+
+    <!--单击显示文字-->
+ 
+    <script type="text/javascript" src="/scripts/click_show_text.js" ></script>
+    </body>
+</html>
+
+
             document.write('<script src="/lib/jquery.min.js">\x3C/script>')
         }
     </script>
