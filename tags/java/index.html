@@ -346,6 +346,157 @@
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/05/11/netty-learn-01/">
+            
+                <span>Netty入门教程 之 NIO 基础讲解，基于NIO实现简单聊天室</span>
+        </a>
+        <div class="abstract-content">
+            
+Netty底层是基于NIO进行实现的。所以要学习Netty 首先要了解清楚 NIO的思想以及基本API。
+
+一、 JAVA IO 模型BIO12先介绍一下传统的java IO —— BIO(同步阻塞式IO)。见名知意，BIO就是当一个线程在执行read() 或 write()，该线程会阻塞 直到有一些数据被读取，或数据完全写入之前，该线程在此期间不能再干任何事情。一般的解决方案是 新启动一个线程，将读写方法放入线程中，但这种方案对线程开销比较大 影响性能。
+NIO12在JDK 1.4之后，java  学习了 linux 的多路复用技术(Select 模式) ——实现IO 事件的轮询。也...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/11</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="netty">netty</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="nio">nio</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/05/11/redis-sentinel-springBoot/">
+            
+                <span>SpringBoot 2.x 整合 Redis 3.x 主从 哨兵</span>
+        </a>
+        <div class="abstract-content">
+            
+本篇主要介绍SpringBoot 2.x 如何整合 Redis3.x 的主从 哨兵模式。 不会搭建 redis 主从+哨兵的可以阅读 我的上一篇 教程 Redis 3.x —— 主 从+哨兵 搭建教程
+
+开始准备项目先准备一个正常是SpringBoot项目，引入redis依赖。
+pom.xml123456789101112131415161718192021&lt;dependencies&gt;     &lt;!--redis--&gt;     &lt;dependency&gt;         &lt;groupId&gt;org.springframework.boot&l...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/11</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="redis">redis</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="springBoot">springBoot</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">
+            
+                <span>Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</span>
+        </a>
+        <div class="abstract-content">
+            Jenkins是什么鬼？
+Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。   —— 百度词条
+
+在我理解就是一个帮助开发人员部署项目的老头子管家。其提供数百个插件用于 构建，部署，自动化 任何项目! 有了jenkins 就可以告别繁琐的打包，上传，重启项目 … 一系列无脑且繁琐的工作，让开发人员更加关注于业务本事。
+Jenkins 下载 及 运行 jenkins 是使用JAVA 语言开发的，首先保证系统中已经安装了jdk，最好是jdk1.5以上。（ 我的环境是 jdk1.8 ） j...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/11</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="jenkins">jenkins</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="SpringBoot">SpringBoot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="svn">svn</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/05/11/swagger-springBoot-01/">
+            
+                <span>Swagger 2.9 整合 SpringBoot 2.x  入门教程</span>
+        </a>
+        <div class="abstract-content">
+            
+本篇主要介绍 Swagger 2.x 结合 SpringBoot 2.x 的主要步骤。 希望给初学者一个简单易懂的教程
+
+
+上干货！！ 
+第一步：引入 Swagger 依赖12345678910&lt;dependency&gt;	&lt;groupId&gt;io.springfox&lt;/groupId&gt;	&lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;	&lt;version&gt;2.9.2&lt;/version&gt;&lt;/dependency&gt;&lt;dependency&gt;	&lt;gr...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/11</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="springBoot">springBoot</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="swagger">swagger</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/05/10/zookeeper-lock-01/">
             
                 <span>Zookeeper + Java 实现 分布式锁</span>
@@ -643,9 +794,81 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 9
+        Total : 15
         </div>
         <!-- search  -->
         
@@ -661,6 +884,36 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/redis-sentinel-springBoot/">SpringBoot 2.x 整合 Redis 3.x 主从 哨兵</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/netty-learn-01/">Netty入门教程 之 NIO 基础讲解，基于NIO实现简单聊天室</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/nexus-01/">Nexus 3.x 搭建 maven 私服 以及 上传 下载 jar包</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/redus-master-slave/">Redis 3.x —— 主、从+哨兵 搭建教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/swagger-springBoot-01/">Swagger 2.9 整合 SpringBoot 2.x  入门教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/mycat-01/">MYCAT入门（一）之下载、目录解析、根据枚举分片</a>
         </li>
     
@@ -671,7 +924,7 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
         </li>
     
     
@@ -681,7 +934,7 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
@@ -713,11 +966,21 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
     
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
+        <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
+    
+        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
         <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
         <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+    
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     
@@ -725,9 +988,17 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
     
         <span class="sidebar-tag-name" data-tags="分布式"><span class="iconfont-archer">&#xe606;</span>分布式</span>
     
+        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
+    
         <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
+    
+        <span class="sidebar-tag-name" data-tags="nio"><span class="iconfont-archer">&#xe606;</span>nio</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -767,6 +1038,8 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="学习笔记/数据库"><span class="iconfont-archer">&#xe60a;</span>学习笔记/数据库</span>
     
         <span class="sidebar-category-name" data-categories="学习笔记/运维"><span class="iconfont-archer">&#xe60a;</span>学习笔记/运维</span>
+    
+        <span class="sidebar-category-name" data-categories="学习教程"><span class="iconfont-archer">&#xe60a;</span>学习教程</span>
     
         <span class="sidebar-category-name" data-categories="学习笔记/数据库/Linux"><span class="iconfont-archer">&#xe60a;</span>学习笔记/数据库/Linux</span>
     
