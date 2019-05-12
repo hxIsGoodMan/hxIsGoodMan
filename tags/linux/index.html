@@ -203,7 +203,7 @@
             var algolia = {
                 applicationID: 'I0R5A7QA58',
                 apiKey: '0912669dbb27f04c8b4c0126128e03b1',
-                indexName: 'blogIndex',
+                indexName: 'hmanBlogIndex',
                 hits: hits,
                 labels: labels
             }
@@ -372,12 +372,7 @@
 redis源码安装方式redis官网：https://redis.io/ 
 我这里用的是3.2.1版本的
 
-将 压缩包上传到服务器后，解压tar -zxf redis-3.2.1.tar.gz 
-进入解压好的文件夹 cd redis-3.2.1  ， 编译 👉    make
-会在src目录下创建可执行文件, 如下:1234redis-benchmark   redis-check-aof redis-check-rdb   redis-cli redis-sentinel    redis-server   ...
-
-
-...
+将 压缩包上传到服务器...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -409,10 +404,7 @@ redis源码安装方式redis官网：https://redis.io/
         </a>
         <div class="abstract-content">
             第一步: 下载
-献上官网地址：http://dev.mysql.com/downloads/mysql/    我这里下载的是5.5版本的然后传到linux中, 可以使用 fileZilla 连接 linux服务器 即可操作其文件目录将压缩包  放到  /app 中 
-
-第二步: 安装1. 进入app文件夹2. 解压 tar3. 重命名 为 mysql123cd /apptar zvxf mysql-5.5.62-linux-glibc2.12-x86_64.tar.gzmv mysql-5.5.62-linux-glibc2.12-x86_64 mysql
-4. 添加/etc/my.c...
+献上官网地址：http://dev.mysql.com/downloads/mysql/    我这里下载的是5.5版本的然后传到linux中, 可以使用 fileZilla 连...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -423,11 +415,11 @@ redis源码安装方式redis官网：https://redis.io/
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="linux">linux</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="数据库">数据库</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="linux">linux</a>
     
 </div>
             
@@ -725,8 +717,6 @@ redis源码安装方式redis官网：https://redis.io/
     
     
     
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 15
@@ -759,7 +749,7 @@ redis源码安装方式redis官网：https://redis.io/
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/redus-master-slave/">Redis 3.x —— 主、从+哨兵 搭建教程</a>
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
         </li>
     
     
@@ -774,12 +764,22 @@ redis源码安装方式redis官网：https://redis.io/
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/redus-master-slave/">Redis 3.x —— 主、从+哨兵 搭建教程</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/mycat-01/">MYCAT入门（一）之下载、目录解析、根据枚举分片</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
@@ -794,22 +794,12 @@ redis源码安装方式redis官网：https://redis.io/
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
         </li>
     
     
@@ -827,31 +817,31 @@ redis源码安装方式redis官网：https://redis.io/
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
-    
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
-    
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
-    
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
         <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+    
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
         <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
     
-        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
-        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
+    
+        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+    
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
@@ -861,9 +851,9 @@ redis源码安装方式redis官网：https://redis.io/
     
         <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     

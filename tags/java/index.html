@@ -203,7 +203,7 @@
             var algolia = {
                 applicationID: 'I0R5A7QA58',
                 apiKey: '0912669dbb27f04c8b4c0126128e03b1',
-                indexName: 'blogIndex',
+                indexName: 'hmanBlogIndex',
                 hits: hits,
                 labels: labels
             }
@@ -369,8 +369,7 @@
             
 Netty底层是基于NIO进行实现的。所以要学习Netty 首先要了解清楚 NIO的思想以及基本API。
 
-一、 JAVA IO 模型BIO12先介绍一下传统的java IO —— BIO(同步阻塞式IO)。见名知意，BIO就是当一个线程在执行read() 或 write()，该线程会阻塞 直到有一些数据被读取，或数据完全写入之前，该线程在此期间不能再干任何事情。一般的解决方案是 新启动一个线程，将读写方法放入线程中，但这种方案对线程开销比较大 影响性能。
-NIO12在JDK 1.4之后，java  学习了 linux 的多路复用技术(Select 模式) ——实现IO 事件的轮询。也...
+一、 JAVA IO 模型BIO12先介绍一下传统的java IO —— BIO(同...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -404,10 +403,7 @@ NIO12在JDK 1.4之后，java  学习了 linux 的多路复用技术(Select 模�
         </a>
         <div class="abstract-content">
             
-本篇主要介绍SpringBoot 2.x 如何整合 Redis3.x 的主从 哨兵模式。 不会搭建 redis 主从+哨兵的可以阅读 我的上一篇 教程 Redis 3.x —— 主 从+哨兵 搭建教程
-
-开始准备项目先准备一个正常是SpringBoot项目，引入redis依赖。
-pom.xml123456789101112131415161718192021&lt;dependencies&gt;     &lt;!--redis--&gt;     &lt;dependency&gt;         &lt;groupId&gt;org.springframework.boot&l...
+本篇主要介绍SpringBoot 2.x 如何整合 Redis3.x 的主从 哨兵模式。 不会搭建 redis 主从+哨兵的可以阅读 我的上一篇 教程 Redis 3.x —— 主 从+哨兵 ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -441,10 +437,7 @@ pom.xml123456789101112131415161718192021&lt;dependencies&gt;     &lt;!--redis--&
         </a>
         <div class="abstract-content">
             Jenkins是什么鬼？
-Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。   —— 百度词条
-
-在我理解就是一个帮助开发人员部署项目的老头子管家。其提供数百个插件用于 构建，部署，自动化 任何项目! 有了jenkins 就可以告别繁琐的打包，上传，重启项目 … 一系列无脑且繁琐的工作，让开发人员更加关注于业务本事。
-Jenkins 下载 及 运行 jenkins 是使用JAVA 语言开发的，首先保证系统中已经安装了jdk，最好是jdk1.5以上。（ 我的环境是 jdk1.8 ） j...
+Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。   —— 百...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -455,13 +448,13 @@ Jenkins 下载 及 运行 jenkins 是使用JAVA 语言开发的，首先保证�
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags="jenkins">jenkins</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="SpringBoot">SpringBoot</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="svn">svn</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
     
 </div>
             
@@ -484,7 +477,7 @@ Jenkins 下载 及 运行 jenkins 是使用JAVA 语言开发的，首先保证�
 
 
 上干货！！ 
-第一步：引入 Swagger 依赖12345678910&lt;dependency&gt;	&lt;groupId&gt;io.springfox&lt;/groupId&gt;	&lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;	&lt;version&gt;2.9.2&lt;/version&gt;&lt;/dependency&gt;&lt;dependency&gt;	&lt;gr...
+第一步：引入 Swagger 依赖1234567891...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -518,10 +511,7 @@ Jenkins 下载 及 运行 jenkins 是使用JAVA 语言开发的，首先保证�
         </a>
         <div class="abstract-content">
             1.什么是分布式锁
-分布式锁是控制分布式系统之间同步访问共享资源的一种方式。在分布式系统中，常常需要协调他们的动作。如果不同的系统或是同一个系统的不同主机之间共享了一个或一组资源，那么访问这些资源的时候，往往需要互斥来防止彼此干扰来保证一致性，在这种情况下，便需要使用到分布式锁。 在分布式系统中，常常需要协调他们的动作。如果不同的系统或是同一个系统的不同主机之间共享了一个或一组资源，那么访问这些资源的时候，往往需要互斥来防止彼此干扰来保证一致性，这个时候，便需要使用到分布式锁。
-
-2.Zookeeper 如何实现分布式锁
-分布式锁，这个主要得益于 ZooKeeper 为我们保证了数据的强...
+分布式锁是控制分布式系统之间同步访问共享资源的一种方式。在分布式系统中，常常需要协调他们的动作。如果不同的系统或是同一个系统的不同主机之间共享了一个或一组资源，那么访问这些资...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -554,8 +544,7 @@ Jenkins 下载 及 运行 jenkins 是使用JAVA 语言开发的，首先保证�
                 <span>Zookeeper入门记录--安装，java连接操作节点</span>
         </a>
         <div class="abstract-content">
-            安装Zookeeper下载地址： http://zookeeper.apache.org/releases.htmlZooInspector 下载地址: https://issues.apache.org/jira/secure/attachment/12436620/ZooInspector.zip  (zk客户端操作工具)
-下载完成后解压：Zookeeper 只需要进入bin目录 双击打开 zkServer.cmd 即可ZooInspector 需要进入 build文件夹 打开cmd 输入java -jar zookeeper-dev-ZooInspector.jar而后就能看到zo...
+            安装Zookeeper下载地址： http://zookeeper.apache.org/releases.htmlZooInspector 下载地址: https://issues.apach...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -587,11 +576,7 @@ Jenkins 下载 及 运行 jenkins 是使用JAVA 语言开发的，首先保证�
         </a>
         <div class="abstract-content">
             1.下载CentOs镜像docker的镜像可以到 https://hub.docker.com/ 中查询将查到的 代码 放入虚拟机中 运行 就会下载 对应的进项了 
-12##centos 拉取代码docker pull centos
-下载完毕后 运行 docker images  若在看到了 centos 这个镜像即为成功
-2.运行镜像，创建容器镜像下载到本地以后，就可以使用Docker运行，通过下面的命令参数启动容器，
-docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
--i：表示以“交互模式”运行容器-t：表示容器启动后会进入其命令行...
+12##centos 拉取代...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -602,9 +587,9 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="docker">docker</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="docker">docker</a>
     
 </div>
             
@@ -902,8 +887,6 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
     
     
     
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 15
@@ -936,7 +919,7 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/redus-master-slave/">Redis 3.x —— 主、从+哨兵 搭建教程</a>
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
         </li>
     
     
@@ -951,12 +934,22 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/redus-master-slave/">Redis 3.x —— 主、从+哨兵 搭建教程</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/mycat-01/">MYCAT入门（一）之下载、目录解析、根据枚举分片</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
@@ -971,22 +964,12 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
         </li>
     
     
@@ -1004,31 +987,31 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
-    
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
-    
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
-    
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
         <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+    
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
         <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
     
-        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
-        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
+    
+        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+    
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
@@ -1038,9 +1021,9 @@ docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;
     
         <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     

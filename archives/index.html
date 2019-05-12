@@ -203,7 +203,7 @@
             var algolia = {
                 applicationID: 'I0R5A7QA58',
                 apiKey: '0912669dbb27f04c8b4c0126128e03b1',
-                indexName: 'blogIndex',
+                indexName: 'hmanBlogIndex',
                 hits: hits,
                 labels: labels
             }
@@ -369,8 +369,7 @@
             
 Netty底层是基于NIO进行实现的。所以要学习Netty 首先要了解清楚 NIO的思想以及基本API。
 
-一、 JAVA IO 模型BIO12先介绍一下传统的java IO —— BIO(同步阻塞式IO)。见名知意，BIO就是当一个线程在执行read() 或 write()，该线程会阻塞 直到有一些数据被读取，或数据完全写入之前，该线程在此期间不能再干任何事情。一般的解决方案是 新启动一个线程，将读写方法放入线程中，但这种方案对线程开销比较大 影响性能。
-NIO12在JDK 1.4之后，java  学习了 linux 的多路复用技术(Select 模式) ——实现IO 事件的轮询。也...
+一、 JAVA IO 模型BIO12先介绍一下传统的java IO —— BIO(同...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -404,10 +403,7 @@ NIO12在JDK 1.4之后，java  学习了 linux 的多路复用技术(Select 模�
         </a>
         <div class="abstract-content">
             
-本篇主要介绍SpringBoot 2.x 如何整合 Redis3.x 的主从 哨兵模式。 不会搭建 redis 主从+哨兵的可以阅读 我的上一篇 教程 Redis 3.x —— 主 从+哨兵 搭建教程
-
-开始准备项目先准备一个正常是SpringBoot项目，引入redis依赖。
-pom.xml123456789101112131415161718192021&lt;dependencies&gt;     &lt;!--redis--&gt;     &lt;dependency&gt;         &lt;groupId&gt;org.springframework.boot&l...
+本篇主要介绍SpringBoot 2.x 如何整合 Redis3.x 的主从 哨兵模式。 不会搭建 redis 主从+哨兵的可以阅读 我的上一篇 教程 Redis 3.x —— 主 从+哨兵 ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -446,12 +442,7 @@ pom.xml123456789101112131415161718192021&lt;dependencies&gt;     &lt;!--redis--&
 redis源码安装方式redis官网：https://redis.io/ 
 我这里用的是3.2.1版本的
 
-将 压缩包上传到服务器后，解压tar -zxf redis-3.2.1.tar.gz 
-进入解压好的文件夹 cd redis-3.2.1  ， 编译 👉    make
-会在src目录下创建可执行文件, 如下:1234redis-benchmark   redis-check-aof redis-check-rdb   redis-cli redis-sentinel    redis-server   ...
-
-
-...
+将 压缩包上传到服务器...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -483,10 +474,7 @@ redis源码安装方式redis官网：https://redis.io/
         </a>
         <div class="abstract-content">
             Jenkins是什么鬼？
-Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。   —— 百度词条
-
-在我理解就是一个帮助开发人员部署项目的老头子管家。其提供数百个插件用于 构建，部署，自动化 任何项目! 有了jenkins 就可以告别繁琐的打包，上传，重启项目 … 一系列无脑且繁琐的工作，让开发人员更加关注于业务本事。
-Jenkins 下载 及 运行 jenkins 是使用JAVA 语言开发的，首先保证系统中已经安装了jdk，最好是jdk1.5以上。（ 我的环境是 jdk1.8 ） j...
+Jenkins是一个开源软件项目，是基于Java开发的一种持续集成工具，用于监控持续重复的工作，旨在提供一个开放易用的软件平台，使软件的持续集成变成可能。   —— 百...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -497,13 +485,13 @@ Jenkins 下载 及 运行 jenkins 是使用JAVA 语言开发的，首先保证�
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags="jenkins">jenkins</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="SpringBoot">SpringBoot</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="svn">svn</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
     
 </div>
             
@@ -526,7 +514,7 @@ Jenkins 下载 及 运行 jenkins 是使用JAVA 语言开发的，首先保证�
 
 
 上干货！！ 
-第一步：引入 Swagger 依赖12345678910&lt;dependency&gt;	&lt;groupId&gt;io.springfox&lt;/groupId&gt;	&lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;	&lt;version&gt;2.9.2&lt;/version&gt;&lt;/dependency&gt;&lt;dependency&gt;	&lt;gr...
+第一步：引入 Swagger 依赖1234567891...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -560,16 +548,7 @@ Jenkins 下载 及 运行 jenkins 是使用JAVA 语言开发的，首先保证�
         </a>
         <div class="abstract-content">
             12最近在项目中要用到我们自己封装的jar包，于是寻思着搭建一个maven私服。 于是催生了这边文章，用于记录 使用 nexus 3.x 搭建maven私服 的过程~~
-Nexus 3.x下载免费版下载地址： https://www.sonatype.com/download-oss-sonatype  
-环境准备我的环境如下：
-
-jdk ： 1.8
-maven ：3.6
-系统： centos 7 
-
-如果有想用 Windows  搭建私服的朋友， 直接闭着眼 跑就行了。 这里就不做详细解释了，哈哈哈~~
-上干货！！
-下载好linux版的 nexus后，上传至 /usr/local 目录...
+Nexus 3.x下载免...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -604,12 +583,7 @@ maven ：3.6
 一个彻底开源的，面向企业应用开发的大数据库集群
 支持事务、ACID、可以替代MySQL的加强版数据库
 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群
-一个融合内存缓存技术、NoSQL技术、HDFS大数据的新型SQL Server
-结合传统数据库和新型分布式数据仓库的新一代企业级数据库产品
-一个新颖的数据库中间件产品
-
-MYCAT的前世今生
-MYCAT 是 基于阿里开源的Cobar产品而研发，Cobar的稳定性、可靠性、优秀的架构和性能以及众多成熟的使用案例使得MYCAT一开始就拥有一个很好的起点，站在巨人的肩膀上，我们能看到更远。业界优秀的开源...
+...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -622,9 +596,9 @@ MYCAT 是 基于阿里开源的Cobar产品而研发，Cobar的稳定性、可靠
     
         <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="数据库">数据库</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags="mycat">mycat</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="数据库">数据库</a>
     
 </div>
             
@@ -649,17 +623,7 @@ MYCAT 是 基于阿里开源的Cobar产品而研发，Cobar的稳定性、可靠
 
 主服务器 ip  ： 192.168.245.1 
 mysql版本    ： 5.5
-系统                 ： win10
-
-虚拟机环境 （从）：
-
-主服务器 ip  ： 192.168.245.129
-mysql版本    ： 5.5
-系统                 ： centos7
-
-
-废话少说，上干货！！
-主配置修改在主服务器上 修改 my.ini （linux下 修改 my.cnf)123456[mysqld]server-id=101     log-bin=mysql...
+系统         ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -691,10 +655,7 @@ mysql版本    ： 5.5
         </a>
         <div class="abstract-content">
             第一步: 下载
-献上官网地址：http://dev.mysql.com/downloads/mysql/    我这里下载的是5.5版本的然后传到linux中, 可以使用 fileZilla 连接 linux服务器 即可操作其文件目录将压缩包  放到  /app 中 
-
-第二步: 安装1. 进入app文件夹2. 解压 tar3. 重命名 为 mysql123cd /apptar zvxf mysql-5.5.62-linux-glibc2.12-x86_64.tar.gzmv mysql-5.5.62-linux-glibc2.12-x86_64 mysql
-4. 添加/etc/my.c...
+献上官网地址：http://dev.mysql.com/downloads/mysql/    我这里下载的是5.5版本的然后传到linux中, 可以使用 fileZilla 连...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -705,11 +666,11 @@ mysql版本    ： 5.5
             
             <div class="abstract-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="linux">linux</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="数据库">数据库</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="linux">linux</a>
     
 </div>
             
@@ -728,7 +689,7 @@ mysql版本    ： 5.5
         </a>
         <div class="abstract-content">
             什么是负载均衡
-   负载均衡建立在现有网络结构之上，它提供了一种廉价有效透明的方法扩展网络设备和服务器的带宽、增加吞吐量、加强网络数据处理能力、提高网络的灵活性和可用性。负载均衡（Load Balance）其意思就是分摊到多个操作单元上进行执行，例如Web服务器、FTP服务器、企业关键应用服务器和其它关键任务服务器等，从而共同完成工作任务。        —来自于百度词条        听不懂度娘的解释？？ 别方，听我的！ (oﾟvﾟ)ノ        什么是负载均衡 ?  就是 100斤砖，你需要从A区 搬到  B区。 一个人搬，累成狗不单止，效率也慢。而且你要是罢工了 (ノ｀Д)ノ...
+   负载均衡建立在现有网络结构之上，它提供了一种廉价有效透明的方法扩展网络设备和服务器的带宽、增加吞吐量、加强网络数据处理能力、提高网络的灵活性和可用性。负载均衡（Load B...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -1043,8 +1004,6 @@ mysql版本    ： 5.5
     
     
     
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 15
@@ -1077,7 +1036,7 @@ mysql版本    ： 5.5
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/redus-master-slave/">Redis 3.x —— 主、从+哨兵 搭建教程</a>
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
         </li>
     
     
@@ -1092,12 +1051,22 @@ mysql版本    ： 5.5
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/redus-master-slave/">Redis 3.x —— 主、从+哨兵 搭建教程</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/mycat-01/">MYCAT入门（一）之下载、目录解析、根据枚举分片</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
@@ -1112,22 +1081,12 @@ mysql版本    ： 5.5
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
         </li>
     
     
@@ -1145,31 +1104,31 @@ mysql版本    ： 5.5
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
-    
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
-    
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
-    
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
         <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+    
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
         <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
     
-        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
-        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
+    
+        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+    
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
@@ -1179,9 +1138,9 @@ mysql版本    ： 5.5
     
         <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     
