@@ -194,6 +194,21 @@
     <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
     <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
     
+        <!-- algolia -->
+        <script>
+            
+            var hits = JSON.parse('{"per_page":10}')
+            var labels = JSON.parse('{"input_placeholder":"Search for Posts","hits_empty":"We did not find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}')
+
+            var algolia = {
+                applicationID: 'I0R5A7QA58',
+                apiKey: '0912669dbb27f04c8b4c0126128e03b1',
+                indexName: 'blogIndex',
+                hits: hits,
+                labels: labels
+            }
+        </script>
+    
     <!-- fancybox -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
     <!-- 百度统计  -->
@@ -431,16 +446,43 @@ redisson 1redisson是redis官网推荐的java语言实现分布式锁的项目�
     
         
             
-                <a href="//github.com/hxIsGoodMan/" class="iconfont-archer github" target="_blank" title="github"></a>
+                <a href="//github.com/hxIsGoodMan/" class="iconfont-social github" target="_blank" title="github"></a>
             
         
     
         
             
-                <span class="iconfont-archer wechat" title="wechat">
+                
+                    <span class="iconfont-social wechat" title="wechat">
+                
                   
                   <img class="profile-qr" src="/intro/wechat.jpg">
                 </span>
+               
+            
+        
+    
+        
+            
+                
+                    <span class="iconfont-social wyy" title="网易云">
+                
+                  
+                  <img class="profile-qr" src="/intro/wyy.png">
+                </span>
+               
+            
+        
+    
+        
+            
+                
+                    <span class="iconfont-social MONO" title="MONO">
+                
+                  
+                  <img class="profile-qr" src="/intro/mono.png">
+                </span>
+               
             
         
     
@@ -681,21 +723,15 @@ redisson 1redisson是redis官网推荐的java语言实现分布式锁的项目�
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 15
         </div>
         <!-- search  -->
+        
+            <div class="site-search popup-trigger">
+                <span class="iconfont-archer search-icon">&#xe627;</span>
+            </div>
         
     </div>
     
@@ -719,16 +755,6 @@ redisson 1redisson是redis官网推荐的java语言实现分布式锁的项目�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/swagger-springBoot-01/">Swagger 2.9 整合 SpringBoot 2.x  入门教程</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/redus-master-slave/">Redis 3.x —— 主、从+哨兵 搭建教程</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
         </li>
     
@@ -739,12 +765,17 @@ redisson 1redisson是redis官网推荐的java语言实现分布式锁的项目�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/mycat-01/">MYCAT入门（一）之下载、目录解析、根据枚举分片</a>
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/redus-master-slave/">Redis 3.x —— 主、从+哨兵 搭建教程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/swagger-springBoot-01/">Swagger 2.9 整合 SpringBoot 2.x  入门教程</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/mycat-01/">MYCAT入门（一）之下载、目录解析、根据枚举分片</a>
         </li>
     
     
@@ -764,12 +795,17 @@ redisson 1redisson是redis官网推荐的java语言实现分布式锁的项目�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
         </li>
     
     
@@ -821,9 +857,9 @@ redisson 1redisson是redis官网推荐的java语言实现分布式锁的项目�
     
         <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
-        <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
-    
         <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     
@@ -888,6 +924,29 @@ jsonContent:
     <script src="/scripts/main.js"></script>
     <!-- algolia -->
     
+        <div class="site-search">
+  <div class="algolia-popup popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="iconfont-archer">&#xe609;</i>
+    </span>
+  </div>
+</div>
+        <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.8.0/dist/instantsearch.min.js" defer></script>
+        <script src="/scripts/search.js" defer></script>
+    
     <!-- busuanzi  -->
     
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -899,8 +958,9 @@ jsonContent:
      
 
     <!--单击显示文字-->
- 
     <script type="text/javascript" src="/scripts/click_show_text.js" ></script>
+    <!-- 动态页面标题 -->
+    <script type="text/javascript" src="/scripts/crash_cheat.js"></script>
     </body>
 </html>
 
