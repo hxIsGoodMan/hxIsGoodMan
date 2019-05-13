@@ -281,9 +281,9 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="docker">docker</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="docker">docker</a>
     
 </div>
                 
@@ -419,16 +419,16 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <h2 id="1-下载CentOs镜像"><a href="#1-下载CentOs镜像" class="headerlink" title="1.下载CentOs镜像"></a>1.下载CentOs镜像</h2><p>docker的镜像可以到 <a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com/</a> 中查询<br>将查到的 代码 放入虚拟机中 运行 就会下载 对应的进项了 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##centos 拉取代码</span><br><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">##centos 拉取代码</span><br><span class="line">docker pull centos</span><br></pre></td></tr></table></figure>
 <p>下载完毕后 运行 docker images  若在看到了 centos 这个镜像即为成功<br><img src="/intro/blogImg/docker/docker-01.png" alt="file"></p>
 <h2 id="2-运行镜像，创建容器"><a href="#2-运行镜像，创建容器" class="headerlink" title="2.运行镜像，创建容器"></a>2.运行镜像，创建容器</h2><p>镜像下载到本地以后，就可以使用Docker运行，<br>通过下面的命令参数启动容器，</p>
 <p>docker run &lt;相关参数&gt; &lt;镜像 ID&gt; &lt;初始命令&gt;</p>
 <p>-i：表示以“交互模式”运行容器<br>-t：表示容器启动后会进入其命令行  （）<br>-v：表示需要将本地哪个目录挂载到容器中   （这个目录和本地是交互的，目录下的文件在容器和本地上是可以相互看见的）格式：-v &lt;宿主机目录&gt;:&lt;容器目录&gt;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># /usr/soft/ : 当前机器的相关程序目录，并且把它挂载到容器的相同目录下</span><br><span class="line">sudo docker run -i -t -v  /usr/soft/: /usr/soft/ ae983d5e88ce /bin/bash</span><br></pre></td></tr></table></figure>
-<h2 id="3-容器安装JDK和Tomcat"><a href="#3-容器安装JDK和Tomcat" class="headerlink" title="3.容器安装JDK和Tomcat"></a>3.容器安装JDK和Tomcat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">安装相关的JDK等程序，这里全部安装到/data/目录：</span><br><span class="line">#创建 data 文件夹</span><br><span class="line">mkdir /data </span><br><span class="line"></span><br><span class="line">#进入usr/soft目录后 解压 对应程序 到 根目录的 data文件夹</span><br><span class="line">tar -zxvf jdk-7u25-linux-x64.tar.gz -C /data/</span><br><span class="line">tar -zxvf  apache-tomcat-9.0.13-1.tar.gz  -C /data/</span><br><span class="line"></span><br><span class="line">#进入data 文件夹内  重命名</span><br><span class="line">mv jdk1.8.0_212  jdk.1.8</span><br><span class="line">mv  apache-tomcat-9.0.13 tomcat.9.0</span><br><span class="line"></span><br><span class="line">配置环境变量</span><br><span class="line"></span><br><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line">添加下面的配置：</span><br><span class="line">export HISTTIMEFORMAT</span><br><span class="line">JAVA_HOME=/data/ jdk.1.8</span><br><span class="line">CLASSPATH=$JAVA_HOME/lib/</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin</span><br><span class="line">export PATH JAVA_HOME CLASSPATH</span><br><span class="line"></span><br><span class="line">export CATALINA_HOME=/data/tomcat.9.0</span><br><span class="line">export CATALINA_BASE=/data/tomcat.9.0</span><br><span class="line"></span><br><span class="line">保存并退出（:wq），设置立即生效：</span><br><span class="line"></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-<h2 id="4-配置启动tomcat脚本"><a href="#4-配置启动tomcat脚本" class="headerlink" title="4.配置启动tomcat脚本"></a>4.配置启动tomcat脚本</h2><p>(启动tomcat时必须通过TOMCATHOME/bin/catalina.sh实现，不能使用TOMCAT_HOME/bin/startup.sh启动，否则脚本执行后容器会马上退出)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">vi /data/start.sh</span><br><span class="line"></span><br><span class="line">添加以下内容：</span><br><span class="line"></span><br><span class="line">#!/bin/bash</span><br><span class="line"># Export environment variable</span><br><span class="line">source /etc/profile</span><br><span class="line"># Start tomcat</span><br><span class="line">bash /data/tomcat.9.0/bin/catalina.sh run</span><br><span class="line"></span><br><span class="line">添加可执行权限：</span><br><span class="line"></span><br><span class="line">chmod u+x /data/start.sh</span><br><span class="line"></span><br><span class="line">#然后退出 容器</span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line">#查看容器</span><br><span class="line">docker ps    #查看运行的容器</span><br><span class="line">docker ps -a  #查看 所有容器</span><br><span class="line"></span><br><span class="line">docker start 容器Id      #启动容器</span><br><span class="line">docker restart 容器id    #重启</span><br><span class="line">docker stop  容器id      #停止容器</span><br><span class="line">docker rm  容器id        #删除容器</span><br><span class="line">docker rmi 镜像id        #删除镜像</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#当你重启容器时  docker ps 还看到容器启动成功 说明你成功了</span><br></pre></td></tr></table></figure></p>
-<h2 id="5-提交镜像"><a href="#5-提交镜像" class="headerlink" title="5.提交镜像"></a>5.提交镜像</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#提交容器  创建镜像 docker commit  容器ID  镜像名称</span><br><span class="line"></span><br><span class="line">sudo docker commit 39b2cf60a4c1 flm/java</span><br><span class="line"></span><br><span class="line">#查看是否创建镜像</span><br><span class="line">sudo docker images</span><br><span class="line"></span><br><span class="line">#如果看到 flm/java 这个镜像存在说明你成功了</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#docker inspect可以查看新创建的镜像的详细信息：</span><br><span class="line"></span><br><span class="line">sudo docker inspect flm/java</span><br></pre></td></tr></table></figure>
-<h2 id="6-运行新创建的容器"><a href="#6-运行新创建的容器" class="headerlink" title="6.运行新创建的容器"></a>6.运行新创建的容器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#（ -p 18080:8080  服务器的端口18080映射到容器端口8080  ，javaweb   命名容器名称， /data/start.sh 启动文件）</span><br><span class="line">docker run -d -p 18080:8080 --name javaweb flm/java /data/start.sh</span><br><span class="line"></span><br><span class="line">-p：表示宿主机与容器的端口映射，此时将容器内部的 8080 端口映射为宿主机的 18080 端口，</span><br><span class="line">这样就向外界暴露了 18080 端口，可通过 Docker 网桥来访问容器内部的 8080 端口了。</span><br><span class="line"></span><br><span class="line">查看后台是否启动成功：</span><br><span class="line">docker ps</span><br><span class="line">能看到 javaweb 即为成功</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /usr/soft/ : 当前机器的相关程序目录，并且把它挂载到容器的相同目录下</span></span><br><span class="line">sudo docker run -i -t -v  <span class="regexp">/usr/</span>soft<span class="regexp">/: /u</span>sr<span class="regexp">/soft/</span> ae983d5e88ce <span class="regexp">/bin/</span>bash</span><br></pre></td></tr></table></figure>
+<h2 id="3-容器安装JDK和Tomcat"><a href="#3-容器安装JDK和Tomcat" class="headerlink" title="3.容器安装JDK和Tomcat"></a>3.容器安装JDK和Tomcat</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">安装相关的JDK等程序，这里全部安装到/data/目录：</span><br><span class="line"><span class="comment">#创建 data 文件夹</span></span><br><span class="line">mkdir /data </span><br><span class="line"></span><br><span class="line"><span class="comment">#进入usr/soft目录后 解压 对应程序 到 根目录的 data文件夹</span></span><br><span class="line">tar -zxvf jdk-7u25-linux-x64.tar.gz -C /data/</span><br><span class="line">tar -zxvf  apache-tomcat-9.0.13-1.tar.gz  -C /data/</span><br><span class="line"></span><br><span class="line"><span class="comment">#进入data 文件夹内  重命名</span></span><br><span class="line">mv jdk1.8.0_212  jdk.1.8</span><br><span class="line">mv  apache-tomcat-9.0.13 tomcat.9.0</span><br><span class="line"></span><br><span class="line">配置环境变量</span><br><span class="line"></span><br><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line">添加下面的配置：</span><br><span class="line"><span class="builtin-name">export</span> HISTTIMEFORMAT</span><br><span class="line"><span class="attribute">JAVA_HOME</span>=/data/ jdk.1.8</span><br><span class="line"><span class="attribute">CLASSPATH</span>=<span class="variable">$JAVA_HOME</span>/lib/</span><br><span class="line"><span class="attribute">PATH</span>=<span class="variable">$PATH</span>:$JAVA_HOME/bin</span><br><span class="line"><span class="builtin-name">export</span> PATH JAVA_HOME CLASSPATH</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">CATALINA_HOME</span>=/data/tomcat.9.0</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">CATALINA_BASE</span>=/data/tomcat.9.0</span><br><span class="line"></span><br><span class="line">保存并退出（:wq），设置立即生效：</span><br><span class="line"></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+<h2 id="4-配置启动tomcat脚本"><a href="#4-配置启动tomcat脚本" class="headerlink" title="4.配置启动tomcat脚本"></a>4.配置启动tomcat脚本</h2><p>(启动tomcat时必须通过TOMCATHOME/bin/catalina.sh实现，不能使用TOMCAT_HOME/bin/startup.sh启动，否则脚本执行后容器会马上退出)<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="regexp">/data/</span>start.sh</span><br><span class="line"></span><br><span class="line">添加以下内容：</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Export environment variable</span></span><br><span class="line">source <span class="regexp">/etc/</span>profile</span><br><span class="line"><span class="comment"># Start tomcat</span></span><br><span class="line">bash <span class="regexp">/data/</span>tomcat.<span class="number">9.0</span><span class="regexp">/bin/</span>catalina.sh run</span><br><span class="line"></span><br><span class="line">添加可执行权限：</span><br><span class="line"></span><br><span class="line">chmod u+x <span class="regexp">/data/</span>start.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#然后退出 容器</span></span><br><span class="line"><span class="keyword">exit</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看容器</span></span><br><span class="line">docker ps    <span class="comment">#查看运行的容器</span></span><br><span class="line">docker ps -a  <span class="comment">#查看 所有容器</span></span><br><span class="line"></span><br><span class="line">docker start 容器Id      <span class="comment">#启动容器</span></span><br><span class="line">docker restart 容器id    <span class="comment">#重启</span></span><br><span class="line">docker stop  容器id      <span class="comment">#停止容器</span></span><br><span class="line">docker rm  容器id        <span class="comment">#删除容器</span></span><br><span class="line">docker rmi 镜像id        <span class="comment">#删除镜像</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#当你重启容器时  docker ps 还看到容器启动成功 说明你成功了</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="5-提交镜像"><a href="#5-提交镜像" class="headerlink" title="5.提交镜像"></a>5.提交镜像</h2><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#提交容器  创建镜像 docker commit  容器ID  镜像名称</span></span><br><span class="line"></span><br><span class="line">sudo docker commit <span class="number">39</span>b2cf60a4c1 flm/java</span><br><span class="line"></span><br><span class="line"><span class="meta">#查看是否创建镜像</span></span><br><span class="line">sudo docker images</span><br><span class="line"></span><br><span class="line"><span class="meta">#如果看到 flm/java 这个镜像存在说明你成功了</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#docker inspect可以查看新创建的镜像的详细信息：</span></span><br><span class="line"></span><br><span class="line">sudo docker inspect flm/java</span><br></pre></td></tr></table></figure>
+<h2 id="6-运行新创建的容器"><a href="#6-运行新创建的容器" class="headerlink" title="6.运行新创建的容器"></a>6.运行新创建的容器</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#（ -<span class="selector-tag">p</span> <span class="number">18080</span>:<span class="number">8080</span>  服务器的端口<span class="number">18080</span>映射到容器端口<span class="number">8080</span>  ，javaweb   命名容器名称， /data/start<span class="selector-class">.sh</span> 启动文件）</span><br><span class="line">docker run -d -<span class="selector-tag">p</span> <span class="number">18080</span>:<span class="number">8080</span> --name javaweb flm/java /data/start.sh</span><br><span class="line"></span><br><span class="line">-p：表示宿主机与容器的端口映射，此时将容器内部的 <span class="number">8080</span> 端口映射为宿主机的 <span class="number">18080</span> 端口，</span><br><span class="line">这样就向外界暴露了 <span class="number">18080</span> 端口，可通过 Docker 网桥来访问容器内部的 <span class="number">8080</span> 端口了。</span><br><span class="line"></span><br><span class="line">查看后台是否启动成功：</span><br><span class="line">docker ps</span><br><span class="line">能看到 javaweb 即为成功</span><br></pre></td></tr></table></figure>
 <p>然后访问  http://${your IP}:18080 就证明你成功啦~~</p>
 <p>参考地址 ：<a href="https://www.cnblogs.com/lemon-flm/p/7039880.html" target="_blank" rel="noopener">https://www.cnblogs.com/lemon-flm/p/7039880.html</a> </p>
 
@@ -593,6 +593,7 @@ height:50vh;
     
 </footer>
     </div>
+
     <!-- toc -->
     
     <div class="toc-wrapper" style=
@@ -794,9 +795,34 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 15
+        Total : 16
         </div>
         <!-- search  -->
         
@@ -813,6 +839,11 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/13</span><a class="archive-post-title" href="/2019/05/13/nginx-init-linux-1/">nginx 入门教程 之 linux 下安装教程</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -851,7 +882,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
         </li>
     
     
@@ -861,12 +892,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
         </li>
     
     
@@ -894,9 +925,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
@@ -904,21 +937,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
     
-        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
-    
-        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
     
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
+    
+        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+    
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
@@ -928,9 +959,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     

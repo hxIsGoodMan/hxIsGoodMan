@@ -418,7 +418,7 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最近在项目中要用到我们自己封装的jar包，于是寻思着搭建一个maven私服。 </span><br><span class="line">于是催生了这边文章，用于记录 使用 nexus 3.x 搭建maven私服 的过程~~</span><br></pre></td></tr></table></figure>
+        <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最近在项目中要用到我们自己封装的jar包，于是寻思着搭建一个maven私服。 </span><br><span class="line">于是催生了这边文章，用于记录 使用 nexus <span class="number">3</span><span class="selector-class">.x</span> 搭建maven私服 的过程~~</span><br></pre></td></tr></table></figure>
 <h3 id="Nexus-3-x下载"><a href="#Nexus-3-x下载" class="headerlink" title="Nexus 3.x下载"></a>Nexus 3.x下载</h3><p>免费版下载地址： <a href="https://www.sonatype.com/download-oss-sonatype" target="_blank" rel="noopener">https://www.sonatype.com/download-oss-sonatype</a>  </p>
 <h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>我的环境如下：</p>
 <ul>
@@ -430,12 +430,12 @@ height:50vh;
 <h3 id="上干货！！"><a href="#上干货！！" class="headerlink" title="上干货！！"></a>上干货！！</h3><ul>
 <li>下载好linux版的 nexus后，上传至 /usr/local 目录   </li>
 </ul>
-<p>进入 /usr/local 目录  -&gt; 创建新文件夹 nexus -&gt; 解压下载好的压缩包到 新创建的nexus文件夹中 -&gt; 进入nexus文件夹 -&gt; 重命名  nexus-3.6.0-02 为 nexus ；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line"> mkdir nexus</span><br><span class="line"> tar -zxvf nexus-3.6.0-02-unix.tar.gz -C nexus</span><br><span class="line"> cd nexus</span><br><span class="line"> mv nexus-3.6.0-02/ nexus</span><br></pre></td></tr></table></figure></p>
+<p>进入 /usr/local 目录  -&gt; 创建新文件夹 nexus -&gt; 解压下载好的压缩包到 新创建的nexus文件夹中 -&gt; 进入nexus文件夹 -&gt; 重命名  nexus-3.6.0-02 为 nexus ；<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line"> mkdir nexus</span><br><span class="line"> tar -zxvf nexus<span class="number">-3.6</span><span class="number">.0</span><span class="number">-02</span>-unix.tar.gz -C nexus</span><br><span class="line"> cd nexus</span><br><span class="line"> mv nexus<span class="number">-3.6</span><span class="number">.0</span><span class="number">-02</span>/ nexus</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>运行</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/usr/local/nexus/nexus/bin/nexus run</span><br></pre></td></tr></table></figure>
-<p>启动需要一些时间，等到出现 👇👇👇<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-------------------------------------------------</span><br><span class="line"></span><br><span class="line">Started Sonatype Nexus OSS 3.15.2-01</span><br><span class="line"></span><br><span class="line">-------------------------------------------------</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/nexus/</span>nexus<span class="regexp">/bin/</span>nexus run</span><br></pre></td></tr></table></figure>
+<p>启动需要一些时间，等到出现 👇👇👇<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-------------------------------------------------</span><br><span class="line"></span><br><span class="line">Started Sonatype Nexus OSS 3.15.2-01</span><br><span class="line"></span><br><span class="line">-------------------------------------------------</span><br></pre></td></tr></table></figure></p>
 <p> 就是启动成功了 。</p>
 <blockquote>
 <p>那么现在就可以访问 nexus了 ： <a href="http://172.16.104.203:8081" target="_blank" rel="noopener">http://172.16.104.203:8081</a> </p>
@@ -458,7 +458,7 @@ height:50vh;
 <hr>
 <h2 id="上传jar包到私服中"><a href="#上传jar包到私服中" class="headerlink" title="上传jar包到私服中"></a>上传jar包到私服中</h2><p>在setting.xml文件中配置 私服 账号信息<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servers</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">server</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">id</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">username</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">username</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">password</span>&gt;</span>admin123<span class="tag">&lt;/<span class="name">password</span>&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;/<span class="name">server</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">servers</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>在项目的pom文件中配置仓库信息  id 需要与 setting.xml 中的<code>&lt;server&gt;</code>  的 id 匹配哦<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">distributionManagement</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus Release Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://172.16.104.203:8081/repository/demo_hosted/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">snapshotRepository</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">id</span>&gt;</span>admin<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus Snapshot Repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://172.16.104.203:8081/repository/demo_hosted/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">snapshotRepository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">distributionManagement</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>pom.xml 编写 包名 以及 版本信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;groupId&gt;org.gpdi&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;framework&lt;/artifactId&gt;</span><br><span class="line">&lt;version&gt;0.1-Repository&lt;/version&gt;</span><br><span class="line">&lt;packaging&gt;jar&lt;/packaging&gt;</span><br></pre></td></tr></table></figure></p>
+<p>pom.xml 编写 包名 以及 版本信息<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.gpdi<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>framework<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>0.1-Repository<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>然后在idea中deploy 就可以了<br><img src="http://pr9vsksei.bkt.clouddn.com/images/2019/3/image-155505500731820190412154327850.png"><br>随后回到私服的网页可视化工具中<br><img src="http://pr9vsksei.bkt.clouddn.com/images/2019/3/image-155505525568620190412154735805.png"><br><img src="http://pr9vsksei.bkt.clouddn.com/images/2019/3/image-155505527111920190412154751118.png"></p>
 <p>看到了  你刚上传的jar包 就证明 你成功啦 😎~~ </p>
 <h3 id="查看自己上传的jar包的-maven-代码"><a href="#查看自己上传的jar包的-maven-代码" class="headerlink" title="查看自己上传的jar包的 maven 代码"></a>查看自己上传的jar包的 maven 代码</h3><p>先修改setting.xml 文件 将地址换成你的私服地址<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirrors</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">	 <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="name">id</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>nexus repository<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://172.16.104.203:8081/repository/demo_group/<span class="tag">&lt;/<span class="name">url</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirrors</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
@@ -631,6 +631,7 @@ height:50vh;
     
 </footer>
     </div>
+
     <!-- toc -->
     
     <div class="toc-wrapper" style=
@@ -832,9 +833,34 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 15
+        Total : 16
         </div>
         <!-- search  -->
         
@@ -851,6 +877,11 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/13</span><a class="archive-post-title" href="/2019/05/13/nginx-init-linux-1/">nginx 入门教程 之 linux 下安装教程</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -889,7 +920,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
         </li>
     
     
@@ -899,12 +930,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
         </li>
     
     
@@ -932,9 +963,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
@@ -942,21 +975,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
     
-        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
-    
-        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
     
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
+    
+        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+    
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
@@ -966,9 +997,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     

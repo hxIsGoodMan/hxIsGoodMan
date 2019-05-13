@@ -22,7 +22,7 @@
     <meta name="description" content="Ordinary people's blog, welcome to learn together, common progress.">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>linux CentOs7 安装 mysql5.5 (压缩包方式) · Hman Blog</title>
+    <title>nginx 入门教程 之 linux 下安装教程 · Hman Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -232,7 +232,7 @@
                 <a href="/">Hman Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
+                <a href="#" class="post-name">nginx 入门教程 之 linux 下安装教程</a>
             </div>
     </div>
     
@@ -262,7 +262,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            linux CentOs7 安装 mysql5.5 (压缩包方式)
+            nginx 入门教程 之 linux 下安装教程
             <!-- 404 -->
             
         </h1>
@@ -283,20 +283,20 @@ height:50vh;
     
         <a class="post-tag" href="javascript:void(0);" data-tags="linux">linux</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="nginx">nginx</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="数据库">数据库</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="运维">运维</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">429</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">577</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/05/10</span>
+                    <span class="post-intro-time">2019/05/13</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -420,31 +420,27 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="第一步-下载"><a href="#第一步-下载" class="headerlink" title="第一步: 下载"></a>第一步: 下载</h2><blockquote>
-<p>献上官网地址：<a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">http://dev.mysql.com/downloads/mysql/</a><br>    我这里下载的是5.5版本的<br><img src="http://pr9vsksei.bkt.clouddn.com/images/2019/3/image-155478075386520190409113233131.png"><br>然后传到linux中, 可以使用 fileZilla 连接 linux服务器 即可操作其文件目录<br>将压缩包  放到  /app 中 </p>
-</blockquote>
-<h2 id="第二步-安装"><a href="#第二步-安装" class="headerlink" title="第二步: 安装"></a>第二步: 安装</h2><h3 id="1-进入app文件夹"><a href="#1-进入app文件夹" class="headerlink" title="1. 进入app文件夹"></a>1. 进入app文件夹</h3><h3 id="2-解压-tar"><a href="#2-解压-tar" class="headerlink" title="2. 解压 tar"></a>2. 解压 tar</h3><h3 id="3-重命名-为-mysql"><a href="#3-重命名-为-mysql" class="headerlink" title="3. 重命名 为 mysql"></a>3. 重命名 为 mysql</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /app</span><br><span class="line">tar zvxf mysql<span class="number">-5.5</span><span class="number">.62</span>-linux-glibc2<span class="number">.12</span>-x86_64.tar.gz</span><br><span class="line">mv mysql<span class="number">-5.5</span><span class="number">.62</span>-linux-glibc2<span class="number">.12</span>-x86_64 mysql</span><br></pre></td></tr></table></figure>
-<h3 id="4-添加-etc-my-cnf文件"><a href="#4-添加-etc-my-cnf文件" class="headerlink" title="4. 添加/etc/my.cnf文件"></a>4. 添加/etc/my.cnf文件</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /app/mysql/support-<span class="keyword">files</span>/</span><br><span class="line"><span class="keyword">cp</span> -<span class="keyword">f</span> my-small.<span class="keyword">cnf</span> /etc/my.<span class="keyword">cnf</span></span><br></pre></td></tr></table></figure>
-<h3 id="5-创建mysql目录下的data目录"><a href="#5-创建mysql目录下的data目录" class="headerlink" title="5. 创建mysql目录下的data目录"></a>5. 创建mysql目录下的data目录</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="regexp">/app/my</span>sql<span class="regexp">/data/</span></span><br></pre></td></tr></table></figure>
-<h3 id="6-设置用户权限（非必须）"><a href="#6-设置用户权限（非必须）" class="headerlink" title="6. 设置用户权限（非必须）"></a>6. 设置用户权限（非必须）</h3><p>若未建立mysql用户的，需要先创建mysql用户<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">groupadd mysql</span></span><br><span class="line"><span class="attribute">useradd -r -g mysql mysql</span></span><br></pre></td></tr></table></figure></p>
-<p>将mysql的所属用户改为mysql<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown -R mysql<span class="selector-class">.mysql</span> /app/mysql/</span><br></pre></td></tr></table></figure></p>
-<h3 id="7-增加-etc-init-d-mysqld、赋予执行权限"><a href="#7-增加-etc-init-d-mysqld、赋予执行权限" class="headerlink" title="7. 增加/etc/init.d/mysqld、赋予执行权限"></a>7. 增加/etc/init.d/mysqld、赋予执行权限</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp -f mysql.server <span class="meta-keyword">/etc/</span>init.d/mysqld</span><br><span class="line">chmod +x <span class="meta-keyword">/etc/</span>init.d/mysqld</span><br></pre></td></tr></table></figure>
-<h3 id="8-初始化MySQL"><a href="#8-初始化MySQL" class="headerlink" title="8. 初始化MySQL"></a>8. 初始化MySQL</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/app/mysql/scripts/mysql_install_db <span class="attribute">--basedir</span>=/app/mysql <span class="attribute">--datadir</span>=/app/mysql/data <span class="attribute">--user</span>=mysql</span><br></pre></td></tr></table></figure>
-<p>将 /application/mysql/bin/mysqld_safe和/etc/init.d/mysqld中的/usr/local/mysql改为/app/mysql<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">'s#/usr/local/mysql#/app/mysql#g'</span> <span class="regexp">/app/my</span>sql<span class="regexp">/bin/my</span>sqld_safe <span class="regexp">/etc/i</span>nit.d<span class="regexp">/mysqld</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="9-启动mysql"><a href="#9-启动mysql" class="headerlink" title="9. 启动mysql"></a>9. 启动mysql</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/i</span>nit.d<span class="regexp">/mysqld start</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Starting MySQL.Logging to ‘/app/mysql/data/test.err’.<br>.. SUCCESS!<br>能看到这个提示即为成功</p>
-</blockquote>
-<h3 id="10-设置环境变量"><a href="#10-设置环境变量" class="headerlink" title="10. 设置环境变量"></a>10. 设置环境变量</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">'export PATH=/app/mysql/bin:$PATH'</span> &gt;&gt;/etc/<span class="keyword">profile</span></span><br><span class="line"><span class="keyword">source</span> /etc/<span class="keyword">profile</span></span><br></pre></td></tr></table></figure>
-<h2 id="第三步：mysql基本操作"><a href="#第三步：mysql基本操作" class="headerlink" title="第三步：mysql基本操作"></a>第三步：mysql基本操作</h2><p>进入mysql           ： <code>mysql</code>  </p>
-<p>修改root密码     ：<code>SET PASSWORD FOR &#39;root&#39;@&#39;localhost&#39; = PASSWORD(&#39;newpass&#39;);</code><br>                <em>可将localhost 换成 % 即可让所有机器都使用这个账号密码登录该mysql了</em>  </p>
-<p>按Ctrl+C 退出 mysql ，重新使用 新的密码登录   :   <code>mysql -u root -pnewpass</code>  </p>
-<p>导入sql文件  :  <code>source /app/cloud_note.sql</code>  </p>
-<blockquote>
-<p>设置mysql自启动</p>
-<p>赋予可执行权限  <code>chmod +x /etc/init.d/mysqld</code><br>添加服务   <code>chkconfig --add mysqld</code><br>显示服务列表 <code>chkconfig --list</code></p>
-</blockquote>
-<hr>
+        <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="系统版本"><a href="#系统版本" class="headerlink" title="系统版本"></a>系统版本</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment">#  cat /etc/redhat-release</span></span><br><span class="line">CentOS Linux release 7.4.1708 (Core)</span><br></pre></td></tr></table></figure>
+<h3 id="安装必备的依赖"><a href="#安装必备的依赖" class="headerlink" title="安装必备的依赖"></a>安装必备的依赖</h3><h4 id="pcre库"><a href="#pcre库" class="headerlink" title="pcre库"></a>pcre库</h4><p> perl兼容正则表达式<br><br>安装pcre库后nginx可以使用URI重写功能和rewrite模块。 <br><br>先检查pcre是否安装<br><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@localhost ~]</span># <span class="selector-tag">rpm</span> <span class="selector-tag">-qa</span> <span class="selector-tag">pcre</span> <span class="selector-tag">pcre-devel</span></span><br><span class="line"><span class="selector-tag">pcre-devel-8</span><span class="selector-class">.32-17</span><span class="selector-class">.el7</span><span class="selector-class">.x86_64</span></span><br><span class="line"><span class="selector-tag">pcre-8</span><span class="selector-class">.32-17</span><span class="selector-class">.el7</span><span class="selector-class">.x86_64</span></span><br></pre></td></tr></table></figure></p>
+<p>可以使用yum安装<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@localhost</span> ~]<span class="meta"># yum install pcre pcre-devel -y</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="openssl-devel"><a href="#openssl-devel" class="headerlink" title="openssl-devel"></a>openssl-devel</h4><p>安装openssl-devel后nginx可以使用加密服务<br>先检查openssl-devel是否安装<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@localhost ~]</span># <span class="selector-tag">rpm</span> <span class="selector-tag">-qa</span> <span class="selector-tag">openssl-devel</span></span><br><span class="line"><span class="selector-tag">openssl-devel-1</span><span class="selector-class">.0</span><span class="selector-class">.2k-16</span><span class="selector-class">.el7_6</span><span class="selector-class">.1</span><span class="selector-class">.x86_64</span></span><br></pre></td></tr></table></figure></p>
+<p>可以使用yum安装<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@localhost</span> ~]<span class="meta"># yum install openssl-devel -y</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="下载-解压-nginx"><a href="#下载-解压-nginx" class="headerlink" title="下载/解压 nginx"></a>下载/解压 nginx</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>创建目录，并进入<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@localhost</span> ~]<span class="meta"># mkdir -p /usr/local/tools/</span></span><br><span class="line">[root<span class="symbol">@localhost</span> ~]<span class="meta"># cd /home/evan/tools/</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="下载nginx"><a href="#下载nginx" class="headerlink" title="下载nginx"></a>下载nginx</h3><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost tools]<span class="comment"># wget http://nginx.org/download/nginx-1.8.1.tar.gz</span></span><br><span class="line">[root@localhost tools<span class="comment"># ls -l nginx-1.8.1.tar.gz </span></span><br><span class="line">-rw-r--r--<span class="number"> 1 </span>root root<span class="number"> 833473 </span>1月 <span class="number"> 27 </span>00:30 nginx-1.8.1.tar.gz</span><br></pre></td></tr></table></figure>
+<p>也可以直接 访问 <a href="http://nginx.org/download/nginx-1.8.1.tar.gz" target="_blank" rel="noopener">http://nginx.org/download/nginx-1.8.1.tar.gz</a> 网站，下载压缩包，上传至服务器相应目录。<br><br></p>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@localhost tools]</span># <span class="selector-tag">tar</span> <span class="selector-tag">xf</span> <span class="selector-tag">nginx-1</span><span class="selector-class">.8</span><span class="selector-class">.1</span><span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建用户nginx所需用户"><a href="#创建用户nginx所需用户" class="headerlink" title="创建用户nginx所需用户"></a>创建用户nginx所需用户</h3><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@localhost</span> tools]<span class="meta"># useradd -s /sbin/nologin -M www</span></span><br></pre></td></tr></table></figure>
+<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[root@localhost tools]</span># <span class="selector-tag">cd</span> <span class="selector-tag">nginx-1</span><span class="selector-class">.8</span><span class="selector-class">.1</span></span><br></pre></td></tr></table></figure>
+<p>编写编译参数 —— 将nginx安装至 /application/nginx-1.8.1/ 目录下，可按需更改.<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./configure</span> <span class="params">--user=www</span> <span class="params">--group=www</span> \</span><br><span class="line"><span class="params">--prefix=/application/nginx-1</span>.8.1/ \</span><br><span class="line"><span class="params">--with-http_stub_status_module</span> \</span><br><span class="line"><span class="params">--with-http_ssl_module</span></span><br></pre></td></tr></table></figure></p>
+<p>执行编译命令<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make</span></span><br><span class="line"><span class="built_in">make</span> install</span><br></pre></td></tr></table></figure></p>
+<p>创建快捷方式<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost nginx<span class="number">-1.8</span><span class="number">.1</span>]# ln -s /application/nginx1<span class="number">.8</span><span class="number">.1</span>/ /application/nginx</span><br></pre></td></tr></table></figure></p>
+<h3 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h3><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@localhost</span> nginx<span class="number">-1.8</span><span class="number">.1</span>]<span class="meta"># /application/nginx/sbin/nginx</span></span><br></pre></td></tr></table></figure>
+<p>打开浏览器输入当前服务器的ip<br>&lt;% qnimg 2019/5/nginx_20190513220334.png %&gt;<br>能看到这个欢迎页面就代表你已经成功啦~~ 😀<br><br></p>
+<h2 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h2><p>启动如果有问题的话，大多是端口占用(排除安装时已经出错的情况)。这里奉上解决端口冲突的方案给大家。</p>
+<p>查看哪个服务占用该端口(nginx默认监听80端口)<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat  -anp  <span class="string">|grep  80</span></span><br></pre></td></tr></table></figure></p>
+<p>&lt;% qnimg 2019/5/nginx_20190513220335.png %&gt;<br>看监控状态为LISTEN表示已经被占用，最后一列显示被服务nginx占用. 20353 是其PID。<br><br><br>干掉那个占用你端口号的家伙<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill <span class="number">-9</span> <span class="number">20353</span></span><br></pre></td></tr></table></figure></p>
+<p>干掉后，再重新启动你的nginx 就不会有端口冲突的问题了。</p>
+<p><br><br>参考博客：<a href="https://www.linuxidc.com/Linux/2016-04/130727.htm" target="_blank" rel="noopener">https://www.linuxidc.com/Linux/2016-04/130727.htm</a></p>
 <script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://pr9vsksei.bkt.clouddn.com/js/jsFile" type="text/javascript">
 <link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://pr9vsksei.bkt.clouddn.com/css/cssFile" rel="stylesheet" type="text/css"></script>
     </article>
@@ -452,9 +448,9 @@ height:50vh;
     
         <div class="license-wrapper">
             <p>原文作者：<a href="https://hman.fun">Hman</a>
-            </p><p>原文链接：<a href="https://hman.fun/2019/05/10/linux-install-mysql-01/">https://hman.fun/2019/05/10/linux-install-mysql-01/</a>
-            </p><p>发表日期：<a href="https://hman.fun/2019/05/10/linux-install-mysql-01/">May 10th 2019, 11:47:24 pm</a>
-            </p><p>更新日期：<a href="https://hman.fun/2019/05/10/linux-install-mysql-01/">May 11th 2019, 10:07:44 pm</a>
+            </p><p>原文链接：<a href="https://hman.fun/2019/05/13/nginx-init-linux-1/">https://hman.fun/2019/05/13/nginx-init-linux-1/</a>
+            </p><p>发表日期：<a href="https://hman.fun/2019/05/13/nginx-init-linux-1/">May 13th 2019, 9:11:56 pm</a>
+            </p><p>更新日期：<a href="https://hman.fun/2019/05/13/nginx-init-linux-1/">May 13th 2019, 10:17:40 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -462,17 +458,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/05/10/mysql-master-slave-01/" title="mysql5.5 配置 主从">
-                    <div class="nextTitle">mysql5.5 配置 主从</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/05/10/nginx-init-02/" title="nginx 入门教程（二）之 配置负载均衡+反向代理">
-                    <div class="prevTitle">nginx 入门教程（二）之 配置负载均衡+反向代理</div>
+                <a href="/2019/05/11/netty-learn-01/" title="Netty入门教程 之 NIO 基础讲解，基于NIO实现简单聊天室">
+                    <div class="prevTitle">Netty入门教程 之 NIO 基础讲解，基于NIO实现简单聊天室</div>
                 </a>
             
         </li>
@@ -631,7 +622,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#第一步-下载"><span class="toc-number">1.</span> <span class="toc-text">第一步: 下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第二步-安装"><span class="toc-number">2.</span> <span class="toc-text">第二步: 安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-进入app文件夹"><span class="toc-number">2.1.</span> <span class="toc-text">1. 进入app文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-解压-tar"><span class="toc-number">2.2.</span> <span class="toc-text">2. 解压 tar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-重命名-为-mysql"><span class="toc-number">2.3.</span> <span class="toc-text">3. 重命名 为 mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-添加-etc-my-cnf文件"><span class="toc-number">2.4.</span> <span class="toc-text">4. 添加/etc/my.cnf文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-创建mysql目录下的data目录"><span class="toc-number">2.5.</span> <span class="toc-text">5. 创建mysql目录下的data目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-设置用户权限（非必须）"><span class="toc-number">2.6.</span> <span class="toc-text">6. 设置用户权限（非必须）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-增加-etc-init-d-mysqld、赋予执行权限"><span class="toc-number">2.7.</span> <span class="toc-text">7. 增加/etc/init.d/mysqld、赋予执行权限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-初始化MySQL"><span class="toc-number">2.8.</span> <span class="toc-text">8. 初始化MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-启动mysql"><span class="toc-number">2.9.</span> <span class="toc-text">9. 启动mysql</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-设置环境变量"><span class="toc-number">2.10.</span> <span class="toc-text">10. 设置环境变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#第三步：mysql基本操作"><span class="toc-number">3.</span> <span class="toc-text">第三步：mysql基本操作</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境配置"><span class="toc-number">1.</span> <span class="toc-text">环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#系统版本"><span class="toc-number">1.1.</span> <span class="toc-text">系统版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装必备的依赖"><span class="toc-number">1.2.</span> <span class="toc-text">安装必备的依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#pcre库"><span class="toc-number">1.2.1.</span> <span class="toc-text">pcre库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#openssl-devel"><span class="toc-number">1.2.2.</span> <span class="toc-text">openssl-devel</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载-解压-nginx"><span class="toc-number">2.</span> <span class="toc-text">下载/解压 nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#下载"><span class="toc-number">2.1.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载nginx"><span class="toc-number">2.2.</span> <span class="toc-text">下载nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解压"><span class="toc-number">2.3.</span> <span class="toc-text">解压</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建用户nginx所需用户"><span class="toc-number">2.4.</span> <span class="toc-text">创建用户nginx所需用户</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译安装"><span class="toc-number">3.</span> <span class="toc-text">编译安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动nginx"><span class="toc-number">3.1.</span> <span class="toc-text">启动nginx</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题排查"><span class="toc-number">4.</span> <span class="toc-text">问题排查</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

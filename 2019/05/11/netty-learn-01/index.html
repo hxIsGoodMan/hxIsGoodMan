@@ -423,9 +423,9 @@ height:50vh;
         <blockquote>
 <p>Netty底层是基于NIO进行实现的。所以要学习Netty 首先要了解清楚 NIO的思想以及基本API。</p>
 </blockquote>
-<h2 id="一、-JAVA-IO-模型"><a href="#一、-JAVA-IO-模型" class="headerlink" title="一、 JAVA IO 模型"></a>一、 JAVA IO 模型</h2><h3 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">先介绍一下传统的java IO —— BIO(同步阻塞式IO)。见名知意，BIO就是当一个线程在执行read() 或 write()，该线程会阻塞 直到有一些数据被读取，或数据完全写入之前，该线程在此期间不能再干任何事情。</span><br><span class="line">一般的解决方案是 新启动一个线程，将读写方法放入线程中，但这种方案对线程开销比较大 影响性能。</span><br></pre></td></tr></table></figure>
-<h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在JDK 1.4之后，java  学习了 linux 的多路复用技术(Select 模式) ——实现IO 事件的轮询。</span><br><span class="line">也就是 NIO : 全称 non-blocking IO , 中文全解为 同步非阻塞式 IO。而 netty的底层使用的就是NIO的方式实现的。</span><br></pre></td></tr></table></figure>
-<h3 id="AIO"><a href="#AIO" class="headerlink" title="AIO"></a>AIO</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JDK1.7 以后推出了 AIO(NIO的升级版), AIO 是学习了linux的 epoll模式，此时 才实现了真正意义上的异步。</span><br></pre></td></tr></table></figure>
+<h2 id="一、-JAVA-IO-模型"><a href="#一、-JAVA-IO-模型" class="headerlink" title="一、 JAVA IO 模型"></a>一、 JAVA IO 模型</h2><h3 id="BIO"><a href="#BIO" class="headerlink" title="BIO"></a>BIO</h3><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">先介绍一下传统的java IO —— BIO<span class="comment">(同步阻塞式IO)</span>。见名知意，BIO就是当一个线程在执行read<span class="comment">()</span> 或 write<span class="comment">()</span>，该线程会阻塞 直到有一些数据被读取，或数据完全写入之前，该线程在此期间不能再干任何事情。</span><br><span class="line">一般的解决方案是 新启动一个线程，将读写方法放入线程中，但这种方案对线程开销比较大 影响性能。</span><br></pre></td></tr></table></figure>
+<h3 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在<span class="keyword">JDK </span><span class="number">1</span>.<span class="number">4</span>之后，<span class="keyword">java </span> 学习了 linux 的多路复用技术(Select 模式) ——实现IO 事件的轮询。</span><br><span class="line">也就是 NIO : 全称 non-<span class="keyword">blocking </span>IO , 中文全解为 同步非阻塞式 IO。而 netty的底层使用的就是NIO的方式实现的。</span><br></pre></td></tr></table></figure>
+<h3 id="AIO"><a href="#AIO" class="headerlink" title="AIO"></a>AIO</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">JDK1</span><span class="selector-class">.7</span> 以后推出了 <span class="selector-tag">AIO</span>(<span class="selector-tag">NIO</span>的升级版), <span class="selector-tag">AIO</span> 是学习了<span class="selector-tag">linux</span>的 <span class="selector-tag">epoll</span>模式，此时 才实现了真正意义上的异步。</span><br></pre></td></tr></table></figure>
 <h2 id="二、-NIO-核心类-介绍"><a href="#二、-NIO-核心类-介绍" class="headerlink" title="二、 NIO 核心类 介绍"></a>二、 NIO 核心类 介绍</h2><p>Java NIO 由以下几个核心部分组成：</p>
 <ul>
 <li>Channel</li>
@@ -482,6 +482,11 @@ height:50vh;
     <!-- paginator  -->
     <ul class="post-paginator">
         <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/05/13/nginx-init-linux-1/" title="nginx 入门教程 之 linux 下安装教程">
+                    <div class="nextTitle">nginx 入门教程 之 linux 下安装教程</div>
+                </a>
             
         </li>
         <li class="previous">
@@ -629,6 +634,7 @@ height:50vh;
     
 </footer>
     </div>
+
     <!-- toc -->
     
     <div class="toc-wrapper" style=
@@ -830,9 +836,34 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 15
+        Total : 16
         </div>
         <!-- search  -->
         
@@ -849,6 +880,11 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/13</span><a class="archive-post-title" href="/2019/05/13/nginx-init-linux-1/">nginx 入门教程 之 linux 下安装教程</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -887,7 +923,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
         </li>
     
     
@@ -897,12 +933,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
         </li>
     
     
@@ -930,9 +966,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
@@ -940,21 +978,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
     
-        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
-    
-        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
     
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
+    
+        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+    
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
@@ -964,9 +1000,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     

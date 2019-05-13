@@ -463,7 +463,7 @@ height:50vh;
 <h2 id="使用MYCAT配置根据枚举分片"><a href="#使用MYCAT配置根据枚举分片" class="headerlink" title="使用MYCAT配置根据枚举分片"></a>使用MYCAT配置根据枚举分片</h2><p>下面我们来做一个小例子 —— 使用mycat 搭建 mysql 集群 根据某个字段  分库存储信息 </p>
 <h3 id="配置分片规则"><a href="#配置分片规则" class="headerlink" title="配置分片规则"></a>配置分片规则</h3><p>分片规则 在<code>rule.xml</code> 中配置。<br>重点记下 tableRule 的 name (在schema.xml 中 需要用到)  </p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tableRule</span> <span class="attr">name</span>=<span class="string">"my-rule"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">rule</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--  作为分片依据的列--&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">columns</span>&gt;</span>rule<span class="tag">&lt;/<span class="name">columns</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">algorithm</span>&gt;</span>my-function<span class="tag">&lt;/<span class="name">algorithm</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">rule</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">tableRule</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">function</span> <span class="attr">name</span>=<span class="string">"my-function"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">class</span>=<span class="string">"io.mycat.route.function.PartitionByFileMap"</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"defaultNode"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"type"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"mapFile"</span>&gt;</span>my-rule.txt<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">function</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>增加my-rule.txt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db1=0</span><br><span class="line">db2=1</span><br></pre></td></tr></table></figure></p>
+<p>增加my-rule.txt<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">db1</span>=<span class="number">0</span></span><br><span class="line"><span class="attr">db2</span>=<span class="number">1</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="配置物理数据库、表信息"><a href="#配置物理数据库、表信息" class="headerlink" title="配置物理数据库、表信息"></a>配置物理数据库、表信息</h3><p>上 <code>schema.xml</code> ！！</p>
 <p>配置信息详解：<br><em><code>&lt;table/&gt;</code>  这里配置了一个表 名为  <code>customer</code> ， 有两个数据库做分片 <code>dn1,dn2</code> ，分片规则为 <code>my-rule</code> 
 </em><code>&lt;dataNode/&gt;</code>    配置了两个 数据库， 数据库服务器信息   <code>dataHost</code> ，数据库信息   <code>database</code> ，节点名称  <code>name</code><br>*<code>&lt;dataHost/&gt;</code> 配置了 物理数据库的一些信息 。这里配置了两个数据库服务器 做到读写分离，若只有一个数据库服务器只配置一个 <code>&lt;writeHost/&gt;</code> 即可  </p>
@@ -488,7 +488,7 @@ height:50vh;
 <p><code>Mycat-server is running (20343).</code>  看到它，你就成功了</p>
 <hr>
 <p>建表语句</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  DROP TABLE IF EXISTS `customer`;</span><br><span class="line">CREATE TABLE `customer` (</span><br><span class="line">  `id` int(11) NOT NULL,</span><br><span class="line">  `name` varchar(255) DEFAULT NULL,</span><br><span class="line">  `rule` varchar(255) DEFAULT &apos;&apos; COMMENT &apos;db1&apos;,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">`customer`</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">`customer`</span> (</span><br><span class="line">  <span class="string">`id`</span> <span class="built_in">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`name`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">`rule`</span> <span class="built_in">varchar</span>(<span class="number">255</span>) <span class="keyword">DEFAULT</span> <span class="string">''</span> <span class="keyword">COMMENT</span> <span class="string">'db1'</span>,</span><br><span class="line">  PRIMARY <span class="keyword">KEY</span> (<span class="string">`id`</span>)</span><br><span class="line">) <span class="keyword">ENGINE</span>=<span class="keyword">InnoDB</span> <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span>=utf8;</span><br></pre></td></tr></table></figure>
 <p>建好对应的库表之后 使用navicat连接 MYCAT  (默认连接端口号为：8066)</p>
 </li>
 </ul>
@@ -662,6 +662,7 @@ height:50vh;
     
 </footer>
     </div>
+
     <!-- toc -->
     
     <div class="toc-wrapper" style=
@@ -863,9 +864,34 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 15
+        Total : 16
         </div>
         <!-- search  -->
         
@@ -882,6 +908,11 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/13</span><a class="archive-post-title" href="/2019/05/13/nginx-init-linux-1/">nginx 入门教程 之 linux 下安装教程</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -920,7 +951,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
         </li>
     
     
@@ -930,12 +961,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
         </li>
     
     
@@ -963,9 +994,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
@@ -973,21 +1006,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
     
-        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
-    
-        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
     
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
+    
+        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+    
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
@@ -997,9 +1028,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     

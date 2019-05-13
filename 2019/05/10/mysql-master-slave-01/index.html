@@ -289,7 +289,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">776</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">764</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -435,7 +435,7 @@ height:50vh;
 </ul>
 <hr>
 <p>废话少说，上干货！！</p>
-<h2 id="主"><a href="#主" class="headerlink" title="主"></a>主</h2><h3 id="配置修改"><a href="#配置修改" class="headerlink" title="配置修改"></a>配置修改</h3><p>在主服务器上 修改 my.ini （linux下 修改 my.cnf)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id=101     </span><br><span class="line">log-bin=mysql-bin           #开启二进制日志</span><br><span class="line">binlog_format=mixed</span><br><span class="line">binlog-do-db=db1            #  要同步的数据库，有多个 可以配多个  binlog-do-db</span><br><span class="line">binlog-ignore-db=mysql     #要忽略的数据库  也可以配多个</span><br></pre></td></tr></table></figure></p>
+<h2 id="主"><a href="#主" class="headerlink" title="主"></a>主</h2><h3 id="配置修改"><a href="#配置修改" class="headerlink" title="配置修改"></a>配置修改</h3><p>在主服务器上 修改 my.ini （linux下 修改 my.cnf)<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">server-id</span>=<span class="number">101</span>     </span><br><span class="line"><span class="attr">log-bin</span>=mysql-bin           #开启二进制日志</span><br><span class="line"><span class="attr">binlog_format</span>=mixed</span><br><span class="line"><span class="attr">binlog-do-db</span>=db1            #  要同步的数据库，有多个 可以配多个  binlog-do-db</span><br><span class="line"><span class="attr">binlog-ignore-db</span>=mysql     #要忽略的数据库  也可以配多个</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>binlog_format(复制方式) 的格式也有三种：STATEMENT，ROW，MIXED。</p>
 <p>① STATEMENT模式（SBR）- 基于SQL语句的复制</p>
@@ -468,13 +468,13 @@ height:50vh;
 <h3 id="创建slave账号"><a href="#创建slave账号" class="headerlink" title="创建slave账号"></a>创建slave账号</h3><ul>
 <li>用户名：slave     </li>
 <li>密码：slave</li>
-<li>从服务器ip ：192.168.245.129<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant replication slave on *.* to &apos;slave&apos;@192.168.245.129 identified by &apos;slave&apos;;</span><br></pre></td></tr></table></figure>
+<li>从服务器ip ：192.168.245.129<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">replication</span> <span class="keyword">slave</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'slave'</span>@<span class="number">192.168</span><span class="number">.245</span><span class="number">.129</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'slave'</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>查看master状态    <code>SHOW MASTER STATUS</code><br>需要记下 file 以及 Position 的值 ，要配置到从服务器中<br><img src="http://pr9vsksei.bkt.clouddn.com/images/2019/3/image-155481806954020190409215429220.png"></p>
-<h2 id="从"><a href="#从" class="headerlink" title="从"></a>从</h2><h3 id="配置修改-1"><a href="#配置修改-1" class="headerlink" title="配置修改"></a>配置修改</h3><p>找到 my.cnf （或者 my.ini）添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id= 102   #id 需要保证唯一性</span><br></pre></td></tr></table></figure></p>
+<h2 id="从"><a href="#从" class="headerlink" title="从"></a>从</h2><h3 id="配置修改-1"><a href="#配置修改-1" class="headerlink" title="配置修改"></a>配置修改</h3><p>找到 my.cnf （或者 my.ini）添加<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">server-id</span>= <span class="number">102</span>   #id 需要保证唯一性</span><br></pre></td></tr></table></figure></p>
 <p>修改完成后，重启mysql</p>
-<h3 id="执行同步SQL语句"><a href="#执行同步SQL语句" class="headerlink" title="执行同步SQL语句"></a>执行同步SQL语句</h3><p>进入myql,同步SQL语句，需要填写主服务器主机名，登陆凭据，二进制文件的名称和位置。(Ps: 未输入结束符 ； 换行 会自动拼接，输入 ；后 换行 则是执行该语句)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CHANGE MASTER TO</span><br><span class="line">    -&gt;     MASTER_HOST=&apos;192.168.245.1 &apos;,</span><br><span class="line">    -&gt;     MASTER_USER=&apos;slave&apos;,</span><br><span class="line">    -&gt;     MASTER_PASSWORD=&apos;slave&apos;,</span><br><span class="line">    -&gt;     MASTER_LOG_FILE=&apos;mysql-bin.000002&apos;,</span><br><span class="line">    -&gt;     MASTER_LOG_POS=4921;</span><br></pre></td></tr></table></figure></p>
+<h3 id="执行同步SQL语句"><a href="#执行同步SQL语句" class="headerlink" title="执行同步SQL语句"></a>执行同步SQL语句</h3><p>进入myql,同步SQL语句，需要填写主服务器主机名，登陆凭据，二进制文件的名称和位置。(Ps: 未输入结束符 ； 换行 会自动拼接，输入 ；后 换行 则是执行该语句)<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CHANGE MASTER <span class="keyword">TO</span></span><br><span class="line">    -&gt;     <span class="attribute">MASTER_HOST</span>=<span class="string">'192.168.245.1 '</span>,</span><br><span class="line">    -&gt;     <span class="attribute">MASTER_USER</span>=<span class="string">'slave'</span>,</span><br><span class="line">    -&gt;     <span class="attribute">MASTER_PASSWORD</span>=<span class="string">'slave'</span>,</span><br><span class="line">    -&gt;     <span class="attribute">MASTER_LOG_FILE</span>=<span class="string">'mysql-bin.000002'</span>,</span><br><span class="line">    -&gt;     <span class="attribute">MASTER_LOG_POS</span>=4921;</span><br></pre></td></tr></table></figure></p>
 <h3 id="启动slave同步进程"><a href="#启动slave同步进程" class="headerlink" title="启动slave同步进程"></a>启动slave同步进程</h3><p><code>mysql&gt; start slave;</code></p>
 <h3 id="查看slave状态"><a href="#查看slave状态" class="headerlink" title="查看slave状态"></a>查看slave状态</h3><p><code>mysql&gt; show slave status\G</code><br>当你看到了<br><img src="http://pr9vsksei.bkt.clouddn.com/images/2019/3/image-155481928432320190409221444738.png"><br>就代表你的 slave 部署成功啦~~ </p>
 <hr>
@@ -646,6 +646,7 @@ height:50vh;
     
 </footer>
     </div>
+
     <!-- toc -->
     
     <div class="toc-wrapper" style=
@@ -847,9 +848,34 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 15
+        Total : 16
         </div>
         <!-- search  -->
         
@@ -866,6 +892,11 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/13</span><a class="archive-post-title" href="/2019/05/13/nginx-init-linux-1/">nginx 入门教程 之 linux 下安装教程</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -904,7 +935,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
         </li>
     
     
@@ -914,12 +945,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
         </li>
     
     
@@ -947,9 +978,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
@@ -957,21 +990,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
     
-        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
-    
-        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
     
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
+    
+        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+    
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
@@ -981,9 +1012,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     

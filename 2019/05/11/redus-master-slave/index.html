@@ -289,7 +289,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -426,41 +426,41 @@ height:50vh;
 <ol>
 <li>将 压缩包上传到服务器后，解压<code>tar -zxf redis-3.2.1.tar.gz</code> </li>
 <li>进入解压好的文件夹 <code>cd redis-3.2.1</code>  ， 编译 👉    <code>make</code></li>
-<li>会在src目录下创建可执行文件, 如下:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis-benchmark   redis-check-aof </span><br><span class="line">redis-check-rdb   redis-cli </span><br><span class="line">redis-sentinel    redis-server   </span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<li>会在src目录下创建可执行文件, 如下:<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis-benchmark   redis-<span class="keyword">check</span>-aof </span><br><span class="line">redis-<span class="keyword">check</span>-rdb   redis-cli </span><br><span class="line">redis-sentinel    redis-<span class="keyword">server</span>   </span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>献上一条重命名文件夹的命令 有需要的可以改一改文件夹的名称 <code>mv redis-3.2.1 redis</code> </p>
 <p>到了这一步你的redis其实就已经安装成功了，接下来介绍一下如何修改配置文件</p>
-<h2 id="配置主-Redis（master）"><a href="#配置主-Redis（master）" class="headerlink" title="配置主-Redis（master）"></a>配置主-Redis（master）</h2><p>在redis主从中配置 master 无需什么特别的配置，这里就简单的修改端口号以及设置密码即可。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd redis</span><br><span class="line">vi redis.conf</span><br></pre></td></tr></table></figure></p>
-<p>配置如下（以下仅为需要修改的配置，其他配置默认即可）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 注释掉bind 以便别的机器连接该redis，为了安全性也可以 绑定某一个ip</span><br><span class="line"># bind 127.0.0.1 ::1</span><br><span class="line"></span><br><span class="line">#端口号</span><br><span class="line">port 6370</span><br><span class="line"></span><br><span class="line">#后台守护线程启动</span><br><span class="line">daemonize yes</span><br><span class="line"></span><br><span class="line">#当前redis密码</span><br><span class="line">requirepass &quot;123456&quot;</span><br><span class="line"></span><br><span class="line">#主Redis密码 </span><br><span class="line">masterauth &quot;123456&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置主-Redis（master）"><a href="#配置主-Redis（master）" class="headerlink" title="配置主-Redis（master）"></a>配置主-Redis（master）</h2><p>在redis主从中配置 master 无需什么特别的配置，这里就简单的修改端口号以及设置密码即可。<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> redis</span><br><span class="line"><span class="keyword">vi</span> redis.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure></p>
+<p>配置如下（以下仅为需要修改的配置，其他配置默认即可）：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 注释掉bind 以便别的机器连接该redis，为了安全性也可以 绑定某一个ip</span></span><br><span class="line"><span class="comment"># bind 127.0.0.1 ::1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#端口号</span></span><br><span class="line">port 6370</span><br><span class="line"></span><br><span class="line"><span class="comment">#后台守护线程启动</span></span><br><span class="line">daemonize <span class="literal">yes</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#当前redis密码</span></span><br><span class="line">requirepass <span class="string">"123456"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#主Redis密码 </span></span><br><span class="line">masterauth <span class="string">"123456"</span></span><br></pre></td></tr></table></figure></p>
 <p>在 master 中需要设置 master 密码 是为了避免 该master 宕机，哨兵将 其中一台 slave 提升为 master ，而该 master 重启后会成为 slave，所以需要设置 master 密码。<br><img src="http://pr9vsksei.bkt.clouddn.com/images/2019/4/image-155704181927420190505153659344.png"></p>
-<h2 id="配置从-Redis（slave）"><a href="#配置从-Redis（slave）" class="headerlink" title="配置从-Redis（slave）"></a>配置从-Redis（slave）</h2><p>同样的修改redis.conf , 以为我是在一台虚拟机中模拟的主从，所以需要复制多份配置文件。<br>这时候复制刚刚修改好的 redis.conf 到的 slaveConf 文件夹中并重命名为 redis-6371.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir slaveConf</span><br><span class="line">mv redis.conf  slaveConf/redis-6371.conf</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置从-Redis（slave）"><a href="#配置从-Redis（slave）" class="headerlink" title="配置从-Redis（slave）"></a>配置从-Redis（slave）</h2><p>同样的修改redis.conf , 以为我是在一台虚拟机中模拟的主从，所以需要复制多份配置文件。<br>这时候复制刚刚修改好的 redis.conf 到的 slaveConf 文件夹中并重命名为 redis-6371.conf<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mkdir</span> slaveConf</span><br><span class="line">mv redis.<span class="keyword">conf</span>  slaveConf/redis-6371.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure></p>
 <p>修改redis-6371.conf 配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#端口号</span><br><span class="line">port 6371</span><br><span class="line"></span><br><span class="line">#  slaveof &lt;master-ip&gt; &lt;mater-port&gt;</span><br><span class="line">slaveof 192.168.245.130 6370</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#端口号</span></span><br><span class="line">port 6371</span><br><span class="line"></span><br><span class="line"><span class="comment">#  slaveof &lt;master-ip&gt; &lt;mater-port&gt;</span></span><br><span class="line">slaveof 192.168.245.130 6370</span><br></pre></td></tr></table></figure>
 <p>因为该配置文件是上一步以及配置好的 所以无需设置 密码 以及 master 密码  等配置。</p>
 <p>需要多少台 slave 就复制多少次配置文件，随后修改端口号即可。</p>
 <blockquote>
 <p>我这里就做 1主 3从。 <br><br>主的端口号为： 6370 <br><br>从1 ：6371 <br><br>从2 ：6372 <br><br>从2 ：6373 <br></p>
 </blockquote>
 <p>（有缘人请重复上一步，创建多几个slave 配置文件）</p>
-<h2 id="配置哨兵（sentinel）"><a href="#配置哨兵（sentinel）" class="headerlink" title="配置哨兵（sentinel）"></a>配置哨兵（sentinel）</h2><p>正常来说每一个redis服务器都需要启动一个哨兵，但是这里为了演示只部署一个哨兵。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#修改端口</span><br><span class="line">port 26370</span><br><span class="line">#修改工作目录</span><br><span class="line">dir &quot;/tmp&quot;</span><br><span class="line">#设置监听主库地址、端口，和选举胜出票数</span><br><span class="line">sentinel monitor mymaster 192.168.245.130 6370 1</span><br><span class="line">#设置master名字mymaster 和密码</span><br><span class="line">sentinel auth-pass mymaster 123456</span><br><span class="line">sentinel config-epoch mymaster 8</span><br><span class="line">#后台执行</span><br><span class="line">daemonize yes</span><br><span class="line">#日志文件 </span><br><span class="line">logfile &quot;/usr/soft/redis/log/sentinel26370.log&quot;</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置哨兵（sentinel）"><a href="#配置哨兵（sentinel）" class="headerlink" title="配置哨兵（sentinel）"></a>配置哨兵（sentinel）</h2><p>正常来说每一个redis服务器都需要启动一个哨兵，但是这里为了演示只部署一个哨兵。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#修改端口</span></span><br><span class="line">port 26370</span><br><span class="line"><span class="comment">#修改工作目录</span></span><br><span class="line">dir <span class="string">"/tmp"</span></span><br><span class="line"><span class="comment">#设置监听主库地址、端口，和选举胜出票数</span></span><br><span class="line">sentinel monitor mymaster 192.168.245.130 6370 1</span><br><span class="line"><span class="comment">#设置master名字mymaster 和密码</span></span><br><span class="line">sentinel auth-pass mymaster 123456</span><br><span class="line">sentinel config-epoch mymaster 8</span><br><span class="line"><span class="comment">#后台执行</span></span><br><span class="line">daemonize <span class="literal">yes</span></span><br><span class="line"><span class="comment">#日志文件 </span></span><br><span class="line">logfile <span class="string">"/usr/soft/redis/log/sentinel26370.log"</span></span><br></pre></td></tr></table></figure></p>
 <p>mymaster：为master的主机名，使用 <code>hostname</code> 命令即可查看。</p>
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>进入redis文件夹<br>先启动 master<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/redis-server redis.conf</span><br></pre></td></tr></table></figure></p>
-<p>启动slave<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">src/redis-server slaveConf/redis-6371.conf</span><br><span class="line">src/redis-server slaveConf/redis-6372.conf</span><br><span class="line">src/redis-server slaveConf/redis-6373.conf</span><br></pre></td></tr></table></figure></p>
-<p>启动sentinel<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/redis-sentinel sentinel.conf</span><br></pre></td></tr></table></figure></p>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>进入redis文件夹<br>先启动 master<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/redis-<span class="keyword">server</span> redis.conf</span><br></pre></td></tr></table></figure></p>
+<p>启动slave<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">src/redis-server slaveConf/redis-<span class="number">6371</span>.conf</span><br><span class="line">src/redis-server slaveConf/redis-<span class="number">6372</span>.conf</span><br><span class="line">src/redis-server slaveConf/redis-<span class="number">6373</span>.conf</span><br></pre></td></tr></table></figure></p>
+<p>启动sentinel<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src/redis-sentinel sentinel.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>使用redis客户端工具连接各主从服务器<br><img src="http://pr9vsksei.bkt.clouddn.com/images/2019/4/image-155704470218920190505162502140.png"></p>
 <p>在本机linux set一个值进去，在从1 | 从2 | 从3 中都可看到该值 ，则主从配置成功。</p>
 <p>将 master shutdown 掉<br><code>redis-cli -p 6370 -a 123456 shutdown</code></p>
 <p>再次查看redisClient  的 6370对应的连接，会报错</p>
 <img src="http://pr9vsksei.bkt.clouddn.com/images/2019/4/image-155704557526920190505163935702.png">
-<p>查看sentinel 的log 文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">9759:X 05 May 16:38:47.676 # +switch-master localhost.localdomain 192.168.245.130 6370 192.168.245.130 6372</span><br><span class="line">9759:X 05 May 16:38:47.676 * +slave slave 192.168.245.130:6373 192.168.245.130 6373 @ localhost.localdomain 192.168.245.130 6372</span><br><span class="line">9759:X 05 May 16:38:47.676 * +slave slave 192.168.245.130:6371 192.168.245.130 6371 @ localhost.localdomain 192.168.245.130 6372</span><br><span class="line">9759:X 05 May 16:38:47.676 * +slave slave 192.168.245.130:6370 192.168.245.130 6370 @ localhost.localdomain 192.168.245.130 6372</span><br><span class="line">9759:X 05 May 16:39:17.728 # +sdown slave 192.168.245.130:6370 192.168.245.130 6370 @ localhost.localdomain 192.168.245.130 6372</span><br></pre></td></tr></table></figure></p>
+<p>查看sentinel 的log 文件<br><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">9759</span>:X <span class="number">05</span> May <span class="number">16</span>:<span class="number">38</span>:<span class="number">47.676</span> # +switch-master localhost.localdomain <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span> <span class="number">6370</span> <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span> <span class="number">6372</span></span><br><span class="line"><span class="number">9759</span>:X <span class="number">05</span> May <span class="number">16</span>:<span class="number">38</span>:<span class="number">47.676</span> * +slave slave <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span>:<span class="number">6373</span> <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span> <span class="number">6373</span> @ localhost.localdomain <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span> <span class="number">6372</span></span><br><span class="line"><span class="number">9759</span>:X <span class="number">05</span> May <span class="number">16</span>:<span class="number">38</span>:<span class="number">47.676</span> * +slave slave <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span>:<span class="number">6371</span> <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span> <span class="number">6371</span> @ localhost.localdomain <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span> <span class="number">6372</span></span><br><span class="line"><span class="number">9759</span>:X <span class="number">05</span> May <span class="number">16</span>:<span class="number">38</span>:<span class="number">47.676</span> * +slave slave <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span>:<span class="number">6370</span> <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span> <span class="number">6370</span> @ localhost.localdomain <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span> <span class="number">6372</span></span><br><span class="line"><span class="number">9759</span>:X <span class="number">05</span> May <span class="number">16</span>:<span class="number">39</span>:<span class="number">17.728</span> # +sdown slave <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span>:<span class="number">6370</span> <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span> <span class="number">6370</span> @ localhost.localdomain <span class="number">192.168</span><span class="meta">.245</span><span class="meta">.130</span> <span class="number">6372</span></span><br></pre></td></tr></table></figure></p>
 <ol>
 <li><code>+switch-maste</code> 将 6372 选为 新的 master</li>
 <li><code>+slave</code>  添加slave 到 6372 这个 master 中</li>
 <li><code>+sdown</code> 可以看到 sentinel 将 6370 shutdown 了  </li>
 </ol>
 <p>log文件时常会有延迟 ，一般会使用命令查看：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#连接 sentinel 客户端</span><br><span class="line">redis-cli -p 26370</span><br><span class="line"></span><br><span class="line"># 查看master 状态</span><br><span class="line">SENTINEL masters</span><br><span class="line"></span><br><span class="line">1)  1) &quot;name&quot;</span><br><span class="line">    2) &quot;localhost.localdomain&quot;</span><br><span class="line">    3) &quot;ip&quot;</span><br><span class="line">    4) &quot;192.168.245.130&quot;</span><br><span class="line">    5) &quot;port&quot;</span><br><span class="line">    6) &quot;6372&quot;</span><br><span class="line">    7) &quot;runid&quot;</span><br><span class="line">    8) &quot;c2492691ef4463e96091a2e4682e727f96a737eb&quot;</span><br><span class="line">   ...</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#连接 sentinel 客户端</span><br><span class="line">redis-cli -p <span class="number">26370</span></span><br><span class="line"></span><br><span class="line"># 查看master 状态</span><br><span class="line">SENTINEL masters</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>)  <span class="number">1</span>) <span class="string">"name"</span></span><br><span class="line">    <span class="number">2</span>) <span class="string">"localhost.localdomain"</span></span><br><span class="line">    <span class="number">3</span>) <span class="string">"ip"</span></span><br><span class="line">    <span class="number">4</span>) <span class="string">"192.168.245.130"</span></span><br><span class="line">    <span class="number">5</span>) <span class="string">"port"</span></span><br><span class="line">    <span class="number">6</span>) <span class="string">"6372"</span></span><br><span class="line">    <span class="number">7</span>) <span class="string">"runid"</span></span><br><span class="line">    <span class="number">8</span>) <span class="string">"c2492691ef4463e96091a2e4682e727f96a737eb"</span></span><br><span class="line">   ...</span><br></pre></td></tr></table></figure>
 <p>可以看到 最新的masters 的状态，以及ip和端口号的信息<br><img src="http://pr9vsksei.bkt.clouddn.com/images/2019/4/image-155704642733920190505165347839.png"></p>
 <script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://pr9vsksei.bkt.clouddn.com/js/jsFile" type="text/javascript">
 <link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://pr9vsksei.bkt.clouddn.com/css/cssFile" rel="stylesheet" type="text/css"></script>
@@ -630,6 +630,7 @@ height:50vh;
     
 </footer>
     </div>
+
     <!-- toc -->
     
     <div class="toc-wrapper" style=
@@ -831,9 +832,34 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 15
+        Total : 16
         </div>
         <!-- search  -->
         
@@ -850,6 +876,11 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/13</span><a class="archive-post-title" href="/2019/05/13/nginx-init-linux-1/">nginx 入门教程 之 linux 下安装教程</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -888,7 +919,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
         </li>
     
     
@@ -898,12 +929,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-02/">nginx 入门教程（二）之 配置负载均衡+反向代理</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
         </li>
     
     
@@ -931,9 +962,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
@@ -941,21 +974,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
-    
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
     
-        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
-    
-        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
     
         <span class="sidebar-tag-name" data-tags="nginx"><span class="iconfont-archer">&#xe606;</span>nginx</span>
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
+    
+        <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
+    
+        <span class="sidebar-tag-name" data-tags="maven"><span class="iconfont-archer">&#xe606;</span>maven</span>
     
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
@@ -965,9 +996,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     
