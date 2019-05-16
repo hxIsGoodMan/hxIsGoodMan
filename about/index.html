@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
+
     <!-- title -->
 
 
@@ -219,6 +220,9 @@
 </head>
 
     
+        <head>
+            <link href="/css/about.css" rel="stylesheet" type="text/css" ></link>
+        </head>
         <body class="about-body">
     
     
@@ -231,22 +235,17 @@
     <a class="home-link" href="/">Hman Blog</a>
 </header>
     <div class="wrapper">
-        <div class="site-intro" style="
+         
+    <div class="site-intro" style="height: 30vh;">
 
 
-
-
-
-
-
-height:50vh;
-">
     
     <!-- 主页  -->
     
     
             
     <div class="site-intro-placeholder"></div>
+   
     <div class="site-intro-img" style="background-image: url(/intro/about-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
@@ -366,50 +365,104 @@ height:50vh;
 <!-- 引入jq  -->
 <script type="text/javascript" src="/lib/jquery.min.js"></script>
 <script type="text/javascript" src="/scripts/tagcloud.js"></script>
+<script src="/scripts/clipboard.min.js"></script>
+        <div class="popup_info">
+            关键字 复制成功！
+        </div>
 <main class="main about-page" style="width:100%;">
-    <article class="article-entry" style="display: flex;width:100%;justify-content:space-around">
 
+    <article class="article-entry" style="display: flex;width:100%;justify-content:space-around">
       <!--   <h2 id="关于大名鼎鼎的我"><a href="#关于大名鼎鼎的我" class="headerlink" title="关于大名鼎鼎的我"></a>关于大名鼎鼎的我</h2> -->
           <div class="tagcloud" style="
-            height:400px;width:50%;
+            height:400px;width:50%;padding-left:50px;text-align:center;
           ">
-          
-            <a href="https://movie.douban.com/subject/21937445/" target="_black" title="movie">辩护人</a> 
-            <a href="https://movie.douban.com/subject/5322596/" target="_black" title="movie">超脱</a> 
-            <a href="https://movie.douban.com/subject/1395091/" target="_black" title="movie">未麻的部屋</a> 
-            <a href="https://movie.douban.com/subject/1292064/" target="_black" title="movie">楚门的世界</a> 
-            <a href="https://movie.douban.com/subject/1787291/" target="_black" title="movie">被嫌弃的松子的一生</a> 
-            
-        
-            <a href="https://baike.baidu.com/item/%E7%BD%97%E7%94%9F%E9%97%A8/18185974?fr=aladdin" target="_black" title="music">罗生门</a> 
-            <a href="https://baike.baidu.com/item/%E7%BD%97%E7%94%9F%E9%97%A8/18185974?fr=aladdin" target="_black" title="music">张氏情歌</a> 
-            <a href="https://baike.baidu.com/item/%E8%8A%B1%E6%A8%BD%E4%B8%8E%E8%8A%B1/4521015?fr=aladdin" target="_black" title="music">花樽与花</a> 
-        
-            <a href="https://book.douban.com/subject/26210487/" target="_black" title="book">强风吹拂</a> 
-            <a href="https://movie.douban.com/subject/5322596/" target="_black" title="book">白夜行</a> 
-            <a href="https://movie.douban.com/subject/5322596/" target="_black" title="book">三重门</a> 
+
         </div>
 
         
         <div class="declaration">
-            <h1>About me?</h1>
-            <p> Those songs will tell you  </p>
-            <p> Those movies will tell you </p>
-            <p> Those books will tell you </p>
-            <p>I can only tell you that , I am a happy man</p>
+            <h1>🐱‍💻 About me? ‍🐱‍💻</h1>
+            <p>👩‍🎤 Those songs will tell you 👨‍🎤 </p>
+            <p>‍🐱‍🏍 Those movies will tell you 🐱‍🏍</p>
+            <p>📚 Those books will tell you 📚</p>
+            <p>I can only tell you that , I am a happy man 😀</p>
         </div>
         <script type="text/javascript">
             $(function() {
-                /*初始化 3D标签云*/
-                tagcloud({
-                    selector: ".tagcloud",  //元素选择器
-                    fontsize: 16,       //基本字体大小, 单位px
-                    radius: 100,         //滚动半径, 单位px
-                    mspeed: "normal",   //滚动最大速度, 取值: slow, normal(默认), fast
-                    ispeed: "normal",   //滚动初速度, 取值: slow, normal(默认), fast
-                    direction: 135,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
-                    keep: false          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
+                
+                var aboutMeData=[];
+                //同步请求信息
+                $.ajax({  
+                    type : "get",  
+                    url : "/intro/aboutMeData.json", 
+                    async : false,  
+                    success : function(data){  
+                       aboutMeData=data;
+                    } 
+                });  
+                var nodes="";
+                for(var i=0;i<aboutMeData.length;i++){
+                    var dataType=switchDataType(aboutMeData[i].type);
+                   
+                    node = '<span class="copy"'+ 'title="'+dataType.type
+                    +'" data-clipboard-text="'+aboutMeData[i].keys+'">'+aboutMeData[i].name+'</span>';
+
+                    nodes += node;
+                }
+
+                $(".tagcloud").html(nodes);
+
+                function switchDataType(type){
+                    var result={};
+                    switch (type) {
+                        case "movie":
+                            result.color="red";
+                            result.type="电影"
+                            break;
+                        case "music":
+                            result.color="purple";
+                            result.type="音乐"
+                            break;
+                        default:
+                            result.color="blue";
+                            result.type="书"
+                            break;
+                    }
+
+                    return result;
+                }
+
+                if (screen.width >= 768) {
+                      /*初始化 3D标签云*/
+                    tagcloud({
+                        selector: ".tagcloud",  //元素选择器
+                        fontsize: 16,       //基本字体大小, 单位px
+                        radius: 100,         //滚动半径, 单位px
+                        mspeed: "normal",   //滚动最大速度, 取值: slow, normal(默认), fast
+                        ispeed: "normal",   //滚动初速度, 取值: slow, normal(默认), fast
+                        direction: 135,     //初始滚动方向, 取值角度(顺时针360): 0对应top, 90对应left, 135对应right-bottom(默认)...
+                        keep: false          //鼠标移出组件后是否继续随鼠标滚动, 取值: false, true(默认) 对应 减速至初速度滚动, 随鼠标滚动
+                    });
+                
+                }else{
+                    $(".tagcloud").css({"height":"auto"})
+                    $(".copy").addClass("copy_btn");
+
+                }
+
+                // var doms=[];
+                //  $('.btn').each(function() {
+                //       doms.push(this);
+                // });
+                var clipboard = new ClipboardJS(".copy");
+                clipboard.on('success', function(e) {
+                  //  console.info(e);
                 });
+
+                clipboard.on('error', function(e) {
+                    console.info(e);
+                });
+
             });
         </script>
 

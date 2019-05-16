@@ -1,0 +1,32 @@
+.copy{
+  cursor: pointer;
+  color:  #f75357;
+  font-size: 1rem;
+  word-break: break-all;
+  
+}
+.copy_btn{
+  display: block;
+  text-align: left;
+  margin-bottom: 20px;
+}
+/* 弹出层 */
+.popup_info {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 40px;
+    width: 100%;
+    background-color: #e67e22;
+    opacity: 0.7;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.2rem;
+    color: #fff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 999;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
