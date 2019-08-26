@@ -287,11 +287,11 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
+        <a class="post-tag" href="javascript:void(0);" data-tags="linux">linux</a>
+    
         <a class="post-tag" href="javascript:void(0);" data-tags="mysql">mysql</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="数据库">数据库</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="linux">linux</a>
     
 </div>
                 
@@ -427,7 +427,7 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <h2 id="第一步-下载"><a href="#第一步-下载" class="headerlink" title="第一步: 下载"></a>第一步: 下载</h2><blockquote>
-<p>献上官网地址：<a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">http://dev.mysql.com/downloads/mysql/</a><br>    我这里下载的是5.5版本的<br><img src="http://pr9vsksei.bkt.clouddn.com/images/2019/3/image-155478075386520190409113233131.png"><br>然后传到linux中, 可以使用 fileZilla 连接 linux服务器 即可操作其文件目录<br>将压缩包  放到  /app 中 </p>
+<p>献上官网地址：<a href="http://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">http://dev.mysql.com/downloads/mysql/</a><br>    我这里下载的是5.5版本的<br><img src="http://hman.fun/images/2019/3/image-155478075386520190409113233131.png"><br>然后传到linux中, 可以使用 fileZilla 连接 linux服务器 即可操作其文件目录<br>将压缩包  放到  /app 中 </p>
 </blockquote>
 <h2 id="第二步-安装"><a href="#第二步-安装" class="headerlink" title="第二步: 安装"></a>第二步: 安装</h2><h3 id="1-进入app文件夹"><a href="#1-进入app文件夹" class="headerlink" title="1. 进入app文件夹"></a>1. 进入app文件夹</h3><h3 id="2-解压-tar"><a href="#2-解压-tar" class="headerlink" title="2. 解压 tar"></a>2. 解压 tar</h3><h3 id="3-重命名-为-mysql"><a href="#3-重命名-为-mysql" class="headerlink" title="3. 重命名 为 mysql"></a>3. 重命名 为 mysql</h3><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /app</span><br><span class="line">tar zvxf mysql<span class="number">-5.5</span><span class="number">.62</span>-linux-glibc2<span class="number">.12</span>-x86_64.tar.gz</span><br><span class="line">mv mysql<span class="number">-5.5</span><span class="number">.62</span>-linux-glibc2<span class="number">.12</span>-x86_64 mysql</span><br></pre></td></tr></table></figure>
 <h3 id="4-添加-etc-my-cnf文件"><a href="#4-添加-etc-my-cnf文件" class="headerlink" title="4. 添加/etc/my.cnf文件"></a>4. 添加/etc/my.cnf文件</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /app/mysql/support-<span class="keyword">files</span>/</span><br><span class="line"><span class="keyword">cp</span> -<span class="keyword">f</span> my-small.<span class="keyword">cnf</span> /etc/my.<span class="keyword">cnf</span></span><br></pre></td></tr></table></figure>
@@ -451,8 +451,8 @@ height:50vh;
 <p>赋予可执行权限  <code>chmod +x /etc/init.d/mysqld</code><br>添加服务   <code>chkconfig --add mysqld</code><br>显示服务列表 <code>chkconfig --list</code></p>
 </blockquote>
 <hr>
-<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://pr9vsksei.bkt.clouddn.com/js/jsFile" type="text/javascript">
-<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://pr9vsksei.bkt.clouddn.com/css/cssFile" rel="stylesheet" type="text/css"></script>
+<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://hman.fun/js/jsFile" type="text/javascript">
+<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://hman.fun/css/cssFile" rel="stylesheet" type="text/css"></script>
     </article>
     <!-- license  -->
     
@@ -853,10 +853,6 @@ top:50vh;
     
     
     
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 17
@@ -899,17 +895,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/redus-master-slave/">Redis 3.x —— 主、从+哨兵 搭建教程</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/nexus-01/">Nexus 3.x 搭建 maven 私服 以及 上传 下载 jar包</a>
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
         </li>
     
     
@@ -919,12 +910,17 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/nexus-01/">Nexus 3.x 搭建 maven 私服 以及 上传 下载 jar包</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/mycat-01/">MYCAT入门（一）之下载、目录解析、根据枚举分片</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
         </li>
     
     
@@ -934,7 +930,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/nginx-init-01/">nginx 入门教程（一）之 下载运行 + 配置简介</a>
         </li>
     
     
@@ -967,9 +963,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
@@ -977,13 +975,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
-        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
-    
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
     
         <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
     
@@ -997,19 +991,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="分布式"><span class="iconfont-archer">&#xe606;</span>分布式</span>
     
-        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
-    
         <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
-        <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
-    
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
+        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
         <span class="sidebar-tag-name" data-tags="前端"><span class="iconfont-archer">&#xe606;</span>前端</span>
     
         <span class="sidebar-tag-name" data-tags="echarts"><span class="iconfont-archer">&#xe606;</span>echarts</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
+    
+        <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     
