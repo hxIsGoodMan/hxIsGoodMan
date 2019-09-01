@@ -287,13 +287,13 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
+        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
+    
         <a class="post-tag" href="javascript:void(0);" data-tags="jenkins">jenkins</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="SpringBoot">SpringBoot</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="svn">svn</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
     
 </div>
                 
@@ -433,30 +433,30 @@ height:50vh;
 </blockquote>
 <p>在我理解就是一个帮助开发人员部署项目的老头子管家。其提供数百个插件用于 构建，部署，自动化 任何项目! 有了jenkins 就可以告别繁琐的打包，上传，重启项目 … 一系列无脑且繁琐的工作，让开发人员更加关注于业务本事。</p>
 <h2 id="Jenkins-下载-及-运行"><a href="#Jenkins-下载-及-运行" class="headerlink" title="Jenkins 下载 及 运行"></a>Jenkins 下载 及 运行</h2><p> jenkins 是使用JAVA 语言开发的，首先保证系统中已经安装了jdk，最好是jdk1.5以上。（ 我的环境是 jdk1.8 ）<br><br> jenkins 下载地址 ： <a href="https://jenkins.io/download/" target="_blank" rel="noopener">https://jenkins.io/download/</a> <br><br> jenkins官方提供了各种版本供客官选择，这里我下载的是 2.174版本的war包  。<br> <br><br> war包 只需要放入tomcat 的 webapps 中  然后启动 tomcat 即可。也可以再Jenkins下载目录，打开cmd，运行<br> <code>java -jar jenkins.war --httpPort=8080</code> </p>
-<h2 id="Jenkins-初次运行-创建账号，及安装插件"><a href="#Jenkins-初次运行-创建账号，及安装插件" class="headerlink" title="Jenkins 初次运行 创建账号，及安装插件"></a>Jenkins 初次运行 创建账号，及安装插件</h2><p>第一次启动jenkins  需要输入密码 按照页面提示找到密码 输入即可<br><img src="http://hman.fun/images/2019/3/image-155617599751520190425150637951.png"><br><img src="http://hman.fun/images/2019/3/image-155617628077520190425151120211.png"><br>初始化过程就不多讲，账号可以初始化的时候创建，也可以进入系统后再创建。 </p>
+<h2 id="Jenkins-初次运行-创建账号，及安装插件"><a href="#Jenkins-初次运行-创建账号，及安装插件" class="headerlink" title="Jenkins 初次运行 创建账号，及安装插件"></a>Jenkins 初次运行 创建账号，及安装插件</h2><p>第一次启动jenkins  需要输入密码 按照页面提示找到密码 输入即可<br><img src="http://https.hman.fun//images/2019/3/image-155617599751520190425150637951.png"><br><img src="http://https.hman.fun//images/2019/3/image-155617628077520190425151120211.png"><br>初始化过程就不多讲，账号可以初始化的时候创建，也可以进入系统后再创建。 </p>
 <h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><blockquote>
 <p>安装 Publish Over SSH 插件：<br>        进入系统管理 –&gt; 插件管理 –&gt; 可选插件  搜索 Publish Over SSH  然后 点击直接安装即可 </p>
 </blockquote>
 <h3 id="配置ssh-server"><a href="#配置ssh-server" class="headerlink" title="配置ssh server"></a>配置ssh server</h3><blockquote>
 <p>进入 系统管理–&gt; 系统设置 –&gt; 找到 ssh servers </p>
 </blockquote>
-<img src="http://hman.fun/images/2019/3/image-155617934365620190425160223261.png">
+<img src="http://https.hman.fun//images/2019/3/image-155617934365620190425160223261.png">
 <p>最后点击保存即可</p>
-<h2 id="新建项目，配置脚本"><a href="#新建项目，配置脚本" class="headerlink" title="新建项目，配置脚本"></a>新建项目，配置脚本</h2><img src="http://hman.fun/images/2019/3/image-155617673222020190425151852467.png">
-<img src="http://hman.fun/images/2019/3/image-155617768502120190425153445208.png">
+<h2 id="新建项目，配置脚本"><a href="#新建项目，配置脚本" class="headerlink" title="新建项目，配置脚本"></a>新建项目，配置脚本</h2><img src="http://https.hman.fun//images/2019/3/image-155617673222020190425151852467.png">
+<img src="http://https.hman.fun//images/2019/3/image-155617768502120190425153445208.png">
 <p>点击确定后，即可填写设置任务信息了</p>
 <p>先设置代码源</p>
-<img src="http://hman.fun/images/2019/3/image-155617784409020190425153724895.png">
+<img src="http://https.hman.fun//images/2019/3/image-155617784409020190425153724895.png">
 <p>设置svn账号信息</p>
-<img src="http://hman.fun/images/2019/3/image-155617807110120190425154111638.png">
-<img src="http://hman.fun/images/2019/3/image-155617816709820190425154247489.png">
-<img src="http://hman.fun/images/2019/3/image-155617823471220190425154354769.png">
-<img src="http://hman.fun/images/2019/3/image-155617829847620190425154458181.png">
-<p>点击 高级，设置maven 环境<br><img src="http://hman.fun/images/2019/3/image-155617978669720190425160946894.png"><br><img src="http://hman.fun/images/2019/3/image-15561785519452019042515491158.png"><br>脚本内容<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/tomcat/apache-tomcat-8080</span><br><span class="line"></span><br><span class="line">sh bin/shutdown.sh</span><br><span class="line"></span><br><span class="line">sleep 10</span><br><span class="line"></span><br><span class="line">sh bin/startup.sh</span><br></pre></td></tr></table></figure></p>
+<img src="http://https.hman.fun//images/2019/3/image-155617807110120190425154111638.png">
+<img src="http://https.hman.fun//images/2019/3/image-155617816709820190425154247489.png">
+<img src="http://https.hman.fun//images/2019/3/image-155617823471220190425154354769.png">
+<img src="http://https.hman.fun//images/2019/3/image-155617829847620190425154458181.png">
+<p>点击 高级，设置maven 环境<br><img src="http://https.hman.fun//images/2019/3/image-155617978669720190425160946894.png"><br><img src="http://https.hman.fun//images/2019/3/image-15561785519452019042515491158.png"><br>脚本内容<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/tomcat/apache-tomcat-8080</span><br><span class="line"></span><br><span class="line">sh bin/shutdown.sh</span><br><span class="line"></span><br><span class="line">sleep 10</span><br><span class="line"></span><br><span class="line">sh bin/startup.sh</span><br></pre></td></tr></table></figure></p>
 <p>配置好后    点击保存</p>
-<p>构建项目<br><img src="http://hman.fun/images/2019/3/image-155617962489720190425160704172.png"><br>可以点击进度条 选择 控制台输出 即可查看 打包的日志输出了<br><img src="http://hman.fun/images/2019/3/image-155618040126320190425162001112.png"></p>
-<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://hman.fun/js/jsFile" type="text/javascript">
-<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://hman.fun/css/cssFile" rel="stylesheet" type="text/css"></script>
+<p>构建项目<br><img src="http://https.hman.fun//images/2019/3/image-155617962489720190425160704172.png"><br>可以点击进度条 选择 控制台输出 即可查看 打包的日志输出了<br><img src="http://https.hman.fun//images/2019/3/image-155618040126320190425162001112.png"></p>
+<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://https.hman.fun//js/jsFile" type="text/javascript">
+<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://https.hman.fun//css/cssFile" rel="stylesheet" type="text/css"></script>
     </article>
     <!-- license  -->
     
@@ -857,9 +857,69 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 19
         </div>
         <!-- search  -->
         
@@ -876,6 +936,16 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href="/2019/09/01/wxPublic-wxTools-01/">java 开发微信公众号后台 之 使用wxTools框架</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href="/2019/08/31/wxPublic-01/">java 开发微信公众号后台第一步：通过开发者验证</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -904,11 +974,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/swagger-springBoot-01/">Swagger 2.9 整合 SpringBoot 2.x  入门教程</a>
         </li>
     
@@ -919,17 +984,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/mycat-01/">MYCAT入门（一）之下载、目录解析、根据枚举分片</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
         </li>
     
     
@@ -944,12 +1004,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
         </li>
     
     
@@ -967,11 +1037,9 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
@@ -979,9 +1047,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
     
@@ -991,13 +1059,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
     
+        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
         <span class="sidebar-tag-name" data-tags="分布式"><span class="iconfont-archer">&#xe606;</span>分布式</span>
-    
-        <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
-    
-        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
@@ -1005,15 +1073,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="echarts"><span class="iconfont-archer">&#xe606;</span>echarts</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
-        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
+        <span class="sidebar-tag-name" data-tags="微信公众号"><span class="iconfont-archer">&#xe606;</span>微信公众号</span>
     
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     
         <span class="sidebar-tag-name" data-tags="nio"><span class="iconfont-archer">&#xe606;</span>nio</span>
+    
+        <span class="sidebar-tag-name" data-tags="wxToolS"><span class="iconfont-archer">&#xe606;</span>wxToolS</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

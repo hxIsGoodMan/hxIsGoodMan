@@ -287,11 +287,11 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="linux">linux</a>
-    
         <a class="post-tag" href="javascript:void(0);" data-tags="nginx">nginx</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags="运维">运维</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="linux">linux</a>
     
 </div>
                 
@@ -441,15 +441,15 @@ height:50vh;
 <p>执行编译命令<br><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make</span></span><br><span class="line"><span class="built_in">make</span> install</span><br></pre></td></tr></table></figure></p>
 <p>创建快捷方式<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost nginx<span class="number">-1.8</span><span class="number">.1</span>]# ln -s /application/nginx1<span class="number">.8</span><span class="number">.1</span>/ /application/nginx</span><br></pre></td></tr></table></figure></p>
 <h3 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h3><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root<span class="symbol">@localhost</span> nginx<span class="number">-1.8</span><span class="number">.1</span>]<span class="meta"># /application/nginx/sbin/nginx</span></span><br></pre></td></tr></table></figure>
-<p>打开浏览器输入当前服务器的ip<br><img src="http://hman.fun/images/2019/5/nginx_20190513220334.png"><br>能看到这个欢迎页面就代表你已经成功啦~~ 😀<br><br></p>
+<p>打开浏览器输入当前服务器的ip<br><img src="http://https.hman.fun//images/2019/5/nginx_20190513220334.png"><br>能看到这个欢迎页面就代表你已经成功啦~~ 😀<br><br></p>
 <h2 id="问题排查"><a href="#问题排查" class="headerlink" title="问题排查"></a>问题排查</h2><p>启动如果有问题的话，大多是端口占用(排除安装时已经出错的情况)。这里奉上解决端口冲突的方案给大家。</p>
 <p>查看哪个服务占用该端口(nginx默认监听80端口)<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat  -anp  <span class="string">|grep  80</span></span><br></pre></td></tr></table></figure></p>
-<img src="http://hman.fun/images/2019/5/nginx_20190513220335.png">
+<img src="http://https.hman.fun//images/2019/5/nginx_20190513220335.png">
 <p>看监控状态为LISTEN表示已经被占用，最后一列显示被服务nginx占用. 20353 是其PID。<br><br><br>干掉那个占用你端口号的家伙<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill <span class="number">-9</span> <span class="number">20353</span></span><br></pre></td></tr></table></figure></p>
 <p>干掉后，再重新启动你的nginx 就不会有端口冲突的问题了。</p>
 <p><br><br>参考博客：<a href="https://www.linuxidc.com/Linux/2016-04/130727.htm" target="_blank" rel="noopener">https://www.linuxidc.com/Linux/2016-04/130727.htm</a></p>
-<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://hman.fun/js/jsFile" type="text/javascript">
-<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://hman.fun/css/cssFile" rel="stylesheet" type="text/css"></script>
+<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://https.hman.fun//js/jsFile" type="text/javascript">
+<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://https.hman.fun//css/cssFile" rel="stylesheet" type="text/css"></script>
     </article>
     <!-- license  -->
     
@@ -850,9 +850,69 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 19
         </div>
         <!-- search  -->
         
@@ -869,6 +929,16 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href="/2019/09/01/wxPublic-wxTools-01/">java 开发微信公众号后台 之 使用wxTools框架</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href="/2019/08/31/wxPublic-01/">java 开发微信公众号后台第一步：通过开发者验证</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -897,11 +967,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/swagger-springBoot-01/">Swagger 2.9 整合 SpringBoot 2.x  入门教程</a>
         </li>
     
@@ -912,17 +977,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/mycat-01/">MYCAT入门（一）之下载、目录解析、根据枚举分片</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
         </li>
     
     
@@ -937,12 +997,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
         </li>
     
     
@@ -960,11 +1030,9 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
@@ -972,9 +1040,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
     
@@ -984,13 +1052,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
     
+        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
         <span class="sidebar-tag-name" data-tags="分布式"><span class="iconfont-archer">&#xe606;</span>分布式</span>
-    
-        <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
-    
-        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
@@ -998,15 +1066,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="echarts"><span class="iconfont-archer">&#xe606;</span>echarts</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
-        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
+        <span class="sidebar-tag-name" data-tags="微信公众号"><span class="iconfont-archer">&#xe606;</span>微信公众号</span>
     
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     
         <span class="sidebar-tag-name" data-tags="nio"><span class="iconfont-archer">&#xe606;</span>nio</span>
+    
+        <span class="sidebar-tag-name" data-tags="wxToolS"><span class="iconfont-archer">&#xe606;</span>wxToolS</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

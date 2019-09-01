@@ -425,18 +425,18 @@ height:50vh;
             <main class="main post-page">
     <article class="article-entry">
         <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Zookeeper下载地址： <a href="http://zookeeper.apache.org/releases.html" target="_blank" rel="noopener">http://zookeeper.apache.org/releases.html</a><br>ZooInspector 下载地址: <a href="https://issues.apache.org/jira/secure/attachment/12436620/ZooInspector.zip" target="_blank" rel="noopener">https://issues.apache.org/jira/secure/attachment/12436620/ZooInspector.zip</a>  (zk客户端操作工具)</p>
-<p>下载完成后解压：<br>Zookeeper 只需要进入bin目录 双击打开 zkServer.cmd 即可<br>ZooInspector 需要进入 build文件夹 打开cmd 输入<br><code>java -jar zookeeper-dev-ZooInspector.jar</code><br><img src="http://hman.fun/images/2019/3/image-155425698397420190403100304839.png"><br>而后就能看到zookeeper的节点详情了<br><img src="http://hman.fun/images/2019/3/image-155425735757120190403100917569.png"></p>
+<p>下载完成后解压：<br>Zookeeper 只需要进入bin目录 双击打开 zkServer.cmd 即可<br>ZooInspector 需要进入 build文件夹 打开cmd 输入<br><code>java -jar zookeeper-dev-ZooInspector.jar</code><br><img src="http://https.hman.fun//images/2019/3/image-155425698397420190403100304839.png"><br>而后就能看到zookeeper的节点详情了<br><img src="http://https.hman.fun//images/2019/3/image-155425735757120190403100917569.png"></p>
 <h2 id="使用java-连接zk"><a href="#使用java-连接zk" class="headerlink" title="使用java 连接zk"></a>使用java 连接zk</h2><h3 id="第一步-创建一个maven项目…-那么简单-我就不细述了"><a href="#第一步-创建一个maven项目…-那么简单-我就不细述了" class="headerlink" title="第一步 创建一个maven项目…..  那么简单 我就不细述了"></a>第一步 创建一个maven项目…..  那么简单 我就不细述了</h3><h3 id="第二步-引入jar包"><a href="#第二步-引入jar包" class="headerlink" title="第二步  引入jar包"></a>第二步  引入jar包</h3><p>依赖如下 </p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.101tec<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>zkclient<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.8<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="第三步-连接zk-创建节点"><a href="#第三步-连接zk-创建节点" class="headerlink" title="第三步 连接zk 创建节点"></a>第三步 连接zk 创建节点</h3><p>源码如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZkDemo</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 连接地址</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String ADDRES = <span class="string">"127.0.0.1:2181"</span>;</span><br><span class="line">	<span class="comment">// 连接超时时间</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SESSIN_TIME_OUT = <span class="number">2000</span>;</span><br><span class="line">	<span class="comment">//java 并法包 信号量技术 控制zk连接成功后 才开始创建节点</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> CountDownLatch countDownLatch = <span class="keyword">new</span> CountDownLatch(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, KeeperException, InterruptedException </span>&#123;</span><br><span class="line">		ZooKeeper zooKeeper = <span class="keyword">new</span> ZooKeeper(ADDRES, SESSIN_TIME_OUT, <span class="keyword">new</span> Watcher() &#123;</span><br><span class="line"></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(WatchedEvent event)</span> </span>&#123;</span><br><span class="line">				<span class="comment">// 获取事件状态</span></span><br><span class="line">				KeeperState keeperState = event.getState();</span><br><span class="line">				<span class="comment">// 获取事件类型</span></span><br><span class="line">				EventType eventType = event.getType();</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span> (KeeperState.SyncConnected == keeperState) &#123;</span><br><span class="line">					<span class="keyword">if</span> (EventType.None == eventType) &#123;</span><br><span class="line">						<span class="comment">// 将信号量 -1</span></span><br><span class="line">						countDownLatch.countDown();</span><br><span class="line">						System.out.println(<span class="string">"开启连接............"</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="comment">//如果（信号量）计数器不为0 会一直等待</span></span><br><span class="line">		countDownLatch.await();</span><br><span class="line">		<span class="comment">// 创建节点</span></span><br><span class="line">		<span class="comment">//节点类型</span></span><br><span class="line">		<span class="comment">// 1. CreateMode.EPHEMERAL 创建一个临时节点</span></span><br><span class="line">		<span class="comment">// 2. CreateMode.EPHEMERAL_SEQUENTIAL 临时节点 如果节点发生重复的情况下，会自动自增Id 以保持唯一性</span></span><br><span class="line">		<span class="comment">// 3. CreateMode.PERSISTENT 持久类型永久保存在硬盘上</span></span><br><span class="line">		<span class="comment">// 4. CreateMode.PERSISTENT_SEQUENTIAL 持久类型 如果节点发生重发的情况下 会自动自增Id 以保持唯一性</span></span><br><span class="line">		<span class="comment">// 访问权限</span></span><br><span class="line">		<span class="comment">//  Ids.OPEN_ACL_UNSAFE 表示创建一个公开的节点 所有人都可以操作</span></span><br><span class="line">		String result = zooKeeper.create(<span class="string">"/nodeName"</span>, <span class="string">"node Data"</span>.getBytes(), Ids.OPEN_ACL_UNSAFE,</span><br><span class="line">				CreateMode.PERSISTENT);</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">"result:"</span> + result);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//关闭连接</span></span><br><span class="line">		zooKeeper.close();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行后马上就可以在 ZooInspector看到你创建的节点 以及 节点内信息了 </p>
-<img src="http://hman.fun/images/2019/3/image-155425810389320190403102143328.png">
+<img src="http://https.hman.fun//images/2019/3/image-155425810389320190403102143328.png">
 <p style="text-align:center;font-size:18px;">未完待续…</p>
 
 
-<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://hman.fun/js/jsFile" type="text/javascript">
-<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://hman.fun/css/cssFile" rel="stylesheet" type="text/css">
+<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://https.hman.fun//js/jsFile" type="text/javascript">
+<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://https.hman.fun//css/cssFile" rel="stylesheet" type="text/css">
 </script>
     </article>
     <!-- license  -->
@@ -838,9 +838,69 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 19
         </div>
         <!-- search  -->
         
@@ -857,6 +917,16 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href="/2019/09/01/wxPublic-wxTools-01/">java 开发微信公众号后台 之 使用wxTools框架</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href="/2019/08/31/wxPublic-01/">java 开发微信公众号后台第一步：通过开发者验证</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -885,11 +955,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/swagger-springBoot-01/">Swagger 2.9 整合 SpringBoot 2.x  入门教程</a>
         </li>
     
@@ -900,17 +965,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/mycat-01/">MYCAT入门（一）之下载、目录解析、根据枚举分片</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
         </li>
     
     
@@ -925,12 +985,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
         </li>
     
     
@@ -948,11 +1018,9 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
@@ -960,9 +1028,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
     
@@ -972,13 +1040,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
     
+        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
         <span class="sidebar-tag-name" data-tags="分布式"><span class="iconfont-archer">&#xe606;</span>分布式</span>
-    
-        <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
-    
-        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
@@ -986,15 +1054,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="echarts"><span class="iconfont-archer">&#xe606;</span>echarts</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
-        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
+        <span class="sidebar-tag-name" data-tags="微信公众号"><span class="iconfont-archer">&#xe606;</span>微信公众号</span>
     
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     
         <span class="sidebar-tag-name" data-tags="nio"><span class="iconfont-archer">&#xe606;</span>nio</span>
+    
+        <span class="sidebar-tag-name" data-tags="wxToolS"><span class="iconfont-archer">&#xe606;</span>wxToolS</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

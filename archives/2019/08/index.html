@@ -23,7 +23,7 @@
     <meta name="description" content="Ordinary people's blog, welcome to learn together, common progress.">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>SpringBoot 2.x 整合 Redis 3.x 主从 哨兵 · Hman Blog</title>
+    <title>Hman Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -220,23 +220,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">Hman Blog</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">SpringBoot 2.x 整合 Redis 3.x 主从 哨兵</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">Hman Blog</a>
 </header>
@@ -249,81 +238,27 @@
 
 
 
-
-height:50vh;
 ">
 
 
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
    
-    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            SpringBoot 2.x 整合 Redis 3.x 主从 哨兵
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="redis">redis</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="springBoot">springBoot</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">463</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/05/11</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -424,83 +359,42 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <blockquote>
-<p>本篇主要介绍SpringBoot 2.x 如何整合 Redis3.x 的主从 哨兵模式。 不会搭建 redis 主从+哨兵的可以阅读 我的上一篇 教程 <a href="//TODO">Redis 3.x —— 主 从+哨兵 搭建教程</a></p>
-</blockquote>
-<h2 id="开始准备项目"><a href="#开始准备项目" class="headerlink" title="开始准备项目"></a>开始准备项目</h2><p>先准备一个正常是SpringBoot项目，引入redis依赖。</p>
-<h3 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!--redis--&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">     <span class="comment">&lt;!-- lettuce pool 缓存连接池 --&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-pool2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.5.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">     <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="application-properties"><a href="#application-properties" class="headerlink" title="application.properties"></a>application.properties</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">##单服务器</span><br><span class="line">#spring.redis.host=39.107.119.256</span><br><span class="line">##单端口</span><br><span class="line">#spring.redis.port=6381</span><br><span class="line"></span><br><span class="line"># SpringBoot 1.x 是 jedis   SpringBoot 2.x 默认是支持 lettuce</span><br><span class="line">spring.redis.lettuce.pool.max-active=16</span><br><span class="line">spring.redis.lettuce.pool.min-idle=8</span><br><span class="line">spring.redis.lettuce.max-active=8</span><br><span class="line">spring.redis.lettuce.max-wait=3000</span><br><span class="line">spring.redis.lettuce.conn-timeout=3000</span><br><span class="line">spring.redis.lettuce.so-timeout=3000</span><br><span class="line">spring.redis.lettuce.size=10</span><br><span class="line"></span><br><span class="line">#哨兵的配置列表 </span><br><span class="line"># localhost.localdomain ： master 的主机名</span><br><span class="line">spring.redis.sentinel.master=localhost.localdomain</span><br><span class="line">spring.redis.sentinel.nodes=192.168.245.130:26370</span><br><span class="line">spring.redis.password=123456</span><br><span class="line">spring.redis.sentinel.master-onlyWrite=true</span><br><span class="line">##哨兵集群</span><br><span class="line">#spring.redis.sentinel.nodes=192.168.245.131:26370,192.168.245.131:26370</span><br></pre></td></tr></table></figure>
-<h2 id="编写测试类"><a href="#编写测试类" class="headerlink" title="编写测试类"></a>编写测试类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.redissentinel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.redis.core.StringRedisTemplate;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.context.junit4.SpringRunner;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RedisSentinelApplicationTests</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    StringRedisTemplate redisTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        redisTemplate.opsForValue().set(<span class="string">"testForMe"</span>,<span class="string">"测试哨兵连接"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(redisTemplate.opsForValue().get(<span class="string">"testForMe"</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行 write() 方法后，查看RedisClient 可以看到 我们设置的值以及再redis中了。<br><img src="http://https.hman.fun//images/2019/4/image-155710896381220190506101603411.png"></p>
-<p>将master关闭，再次运行读和写的程序。</p>
-<img src="http://https.hman.fun//images/2019/4/image-155710914025620190506101900663.png">
-<img src="http://https.hman.fun//images/2019/4/image-155710942221520190506102342707.png">
-<p>可以看到 程序并未被影响。</p>
-<p>此时你的StringBoot整合redis 主从 哨兵 就大功告成啦~</p>
-<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://https.hman.fun//js/jsFile" type="text/javascript">
-<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://https.hman.fun//css/cssFile" rel="stylesheet" type="text/css"></script>
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>原文作者：<a href="https://hman.fun">Hman</a>
-            </p><p>原文链接：<a href="https://hman.fun/2019/05/11/redis-sentinel-springBoot/">https://hman.fun/2019/05/11/redis-sentinel-springBoot/</a>
-            </p><p>发表日期：<a href="https://hman.fun/2019/05/11/redis-sentinel-springBoot/">May 11th 2019, 10:04:43 am</a>
-            </p><p>更新日期：<a href="https://hman.fun/2019/05/11/redis-sentinel-springBoot/">May 11th 2019, 10:08:30 pm</a>
-            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/08/31/wxPublic-01/">
+            
+                <span>java 开发微信公众号后台第一步：通过开发者验证</span>
+        </a>
+        <div class="abstract-content">
+            今天教大家如何开始棒棒的微信公众号的开发
+完成环境搭建 开发微信公众号是需要在公网环境的，小开发们 👩‍💻👩‍💻👩‍💻 在开发测试时候可以使用外网映射工具将自己的需要将我们的本地地址...
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/31</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="java">java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="微信公众号">微信公众号</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/05/11/netty-learn-01/" title="Netty入门教程 之 NIO 基础讲解，基于NIO实现简单聊天室">
-                    <div class="nextTitle">Netty入门教程 之 NIO 基础讲解，基于NIO实现简单聊天室</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/05/11/redus-master-slave/" title="Redis 3.x —— 主、从+哨兵 搭建教程">
-                    <div class="prevTitle">Redis 3.x —— 主、从+哨兵 搭建教程</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-    <div id="comment"></div>
-    <script>
-    new Valine({
-        el: '#comment' ,
-        notify:false, 
-        verify:false, 
-        appId: "BCrRm5WYQpY3hWEOYOHT87xX-gzGzoHsz",
-        appKey: "QHonw10tS1JT7JdgDawmlWuP",
-        placeholder: "大佬,给小弟一点意见吧 (。・∀・)ノ",
-        path:window.location.pathname, 
-        avatar:'mm' 
-    });
-    </script>
-
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -609,24 +503,6 @@ height:50vh;
     </div>
 
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开始准备项目"><span class="toc-number">1.</span> <span class="toc-text">开始准备项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pom-xml"><span class="toc-number">1.1.</span> <span class="toc-text">pom.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#application-properties"><span class="toc-number">1.2.</span> <span class="toc-text">application.properties</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写测试类"><span class="toc-number">2.</span> <span class="toc-text">编写测试类</span></a></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1163,8 +1039,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
 
     <!--单击显示文字-->

@@ -445,12 +445,12 @@ height:50vh;
 <p>反向代理（Reverse Proxy）方式是指以代理服务器外网方式来接受internet上的连接请求，然后将请求转发给内网的服务器(tomcat)，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。</p>
 </blockquote>
 <h2 id="nginx反向代理配置"><a href="#nginx反向代理配置" class="headerlink" title="nginx反向代理配置"></a>nginx反向代理配置</h2><p>反向代理通过在nginx/conf/nginx.conf中的html{} &gt; server{} &gt; location{} &gt; proxy_pass配置</p>
-<p>默认server模块<br><img src="http://hman.fun/images/2019/3/image-155464502681620190407215026360.png"><br><br><br>也许你们会问啦， 为什么 默认的server中没有 proxy_pass  这项呢？？<br><br>root 是代理到 nginx目录中 （nginx中一般存放一些静态资源）<br>proxy_pass  是代理到 其他服务器中 </p>
+<p>默认server模块<br><img src="http://https.hman.fun//images/2019/3/image-155464502681620190407215026360.png"><br><br><br>也许你们会问啦， 为什么 默认的server中没有 proxy_pass  这项呢？？<br><br>root 是代理到 nginx目录中 （nginx中一般存放一些静态资源）<br>proxy_pass  是代理到 其他服务器中 </p>
 <p>反向代理的简单配置<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	 listen <span class="number">8182</span>;</span><br><span class="line">	 server_name localhost;</span><br><span class="line">	 ...</span><br><span class="line">	 <span class="keyword">location</span> <span class="title">/ &#123;</span></span><br><span class="line"><span class="title">	 proxy_pass</span> http://localhost:<span class="number">8082</span>; </span><br><span class="line">	 ...</span><br><span class="line">	 &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
 <p>这时候你访问端口号8182的时候，这个请求会被转发到 8082端口号中<br><br></p>
 <hr>
-<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://hman.fun/js/jsFile" type="text/javascript">
-<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://hman.fun/css/cssFile" rel="stylesheet" type="text/css"></script>
+<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://https.hman.fun//js/jsFile" type="text/javascript">
+<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://https.hman.fun//css/cssFile" rel="stylesheet" type="text/css"></script>
     </article>
     <!-- license  -->
     
@@ -851,9 +851,69 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 19
         </div>
         <!-- search  -->
         
@@ -870,6 +930,16 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href="/2019/09/01/wxPublic-wxTools-01/">java 开发微信公众号后台 之 使用wxTools框架</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href="/2019/08/31/wxPublic-01/">java 开发微信公众号后台第一步：通过开发者验证</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -898,11 +968,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/swagger-springBoot-01/">Swagger 2.9 整合 SpringBoot 2.x  入门教程</a>
         </li>
     
@@ -913,17 +978,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/mycat-01/">MYCAT入门（一）之下载、目录解析、根据枚举分片</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
         </li>
     
     
@@ -938,12 +998,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
         </li>
     
     
@@ -961,11 +1031,9 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
@@ -973,9 +1041,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
     
@@ -985,13 +1053,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
     
+        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
         <span class="sidebar-tag-name" data-tags="分布式"><span class="iconfont-archer">&#xe606;</span>分布式</span>
-    
-        <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
-    
-        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
@@ -999,15 +1067,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="echarts"><span class="iconfont-archer">&#xe606;</span>echarts</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
-        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
+        <span class="sidebar-tag-name" data-tags="微信公众号"><span class="iconfont-archer">&#xe606;</span>微信公众号</span>
     
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     
         <span class="sidebar-tag-name" data-tags="nio"><span class="iconfont-archer">&#xe606;</span>nio</span>
+    
+        <span class="sidebar-tag-name" data-tags="wxToolS"><span class="iconfont-archer">&#xe606;</span>wxToolS</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>

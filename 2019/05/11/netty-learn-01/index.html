@@ -472,8 +472,8 @@ height:50vh;
 <p>服务端 介绍了如何创建一个 Selector 以及 如何 监听客户端事件 和 响应 的具体步骤。</p>
 <h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.InetSocketAddress;</span><br><span class="line"><span class="keyword">import</span> java.nio.ByteBuffer;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.SelectionKey;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.Selector;</span><br><span class="line"><span class="keyword">import</span> java.nio.channels.SocketChannel;</span><br><span class="line"><span class="keyword">import</span> java.nio.charset.Charset;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> ：Hman</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> ：Created in 2019/5/7 10:58</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>：nio 异步聊天室 客户端实现</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@modified</span> By：</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span>: 1.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NioClient</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(String nickName)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//创建与服务端的连接</span></span><br><span class="line">        SocketChannel socketChannel=SocketChannel.open(<span class="keyword">new</span> InetSocketAddress(<span class="string">"127.0.0.1"</span>,<span class="number">8080</span>));</span><br><span class="line">        System.out.println(<span class="string">"------客户端创建成功------"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         *      接收信息</span></span><br><span class="line"><span class="comment">         *   新开一个线程来处理接受的方法</span></span><br><span class="line"><span class="comment">         *   需要 selector类， 将 channel 设置成非注册， 将channel注册到 selector 监听可读事件，启动新线程监听服务器端的响应数据</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        Selector selector=Selector.open();</span><br><span class="line">        socketChannel.configureBlocking(<span class="keyword">false</span>);</span><br><span class="line">        socketChannel.register(selector, SelectionKey.OP_READ);</span><br><span class="line"></span><br><span class="line">        Thread thread=<span class="keyword">new</span> Thread(<span class="keyword">new</span> NioClientHandler(selector));</span><br><span class="line">        thread.start();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 发送信息</span></span><br><span class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span> (scanner.hasNextLine())&#123;</span><br><span class="line">            String message = scanner.nextLine();</span><br><span class="line">            <span class="keyword">if</span>(message != <span class="keyword">null</span> &amp;&amp; message.length()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                socketChannel.write(Charset.forName(NioServer.CODE).encode(nickName+<span class="string">": "</span>+message));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        NioClient nioClient=<span class="keyword">new</span> NioClient();</span><br><span class="line">        nioClient.start(<span class="string">"第一个用户"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NioClientHandler</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Selector selector;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NioClientHandler</span><span class="params">(Selector selector)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.selector=selector;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//循环遍历去获取服务器端的响应信息</span></span><br><span class="line">       <span class="keyword">try</span>&#123;</span><br><span class="line">           <span class="keyword">for</span>(;;)&#123; <span class="comment">//等同于 while(true)   旧的编译器会将for(;;) 优化成一行 而 while(true) 优化成三行 但是现如今两种方式并无太大差异</span></span><br><span class="line">               <span class="comment">// todo 获取可用的channel 数量 （若无连接 会一直阻塞）</span></span><br><span class="line">               <span class="keyword">int</span> readerChannels=selector.select();</span><br><span class="line"></span><br><span class="line">               <span class="comment">//若 可用的 channel数量等于0的话 则跳过该次循环 继续下次循环。  todo  上面已经阻塞，为什么要这样？？</span></span><br><span class="line">               <span class="keyword">if</span>(readerChannels == <span class="number">0</span>)&#123;</span><br><span class="line">                   <span class="keyword">continue</span>;</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">               <span class="comment">//获取连接上当前服务端的 channel Set</span></span><br><span class="line">               Set&lt;SelectionKey&gt; selectionKeySet= selector.selectedKeys();</span><br><span class="line"></span><br><span class="line">               Iterator&lt;SelectionKey&gt; iterator = selectionKeySet.iterator();</span><br><span class="line">               <span class="comment">//遍历</span></span><br><span class="line">               <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">                   SelectionKey selectionKey = iterator.next();</span><br><span class="line"></span><br><span class="line">                   <span class="comment">//获取到之后要删除当前值 避免往后重复获取</span></span><br><span class="line">                   iterator.remove();</span><br><span class="line"></span><br><span class="line">                   <span class="comment">// 7. 根据就绪状态，调用对应的方法处理业务逻辑</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                   <span class="keyword">if</span>(selectionKey.isReadable())&#123;</span><br><span class="line">                       <span class="comment">//如果是 可读事件...</span></span><br><span class="line">                       readerHandler(selectionKey,selector);</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;<span class="keyword">catch</span> (IOException e)&#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">readerHandler</span><span class="params">(SelectionKey selectionKey,Selector selector)</span> <span class="keyword">throws</span> IOException</span>&#123;</span><br><span class="line">        <span class="comment">//从selectionKey中获取 channel</span></span><br><span class="line">        SocketChannel socketChannel = (SocketChannel) selectionKey.channel();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//创建buffer （只有buffer可以从channer中读取信息）</span></span><br><span class="line">        ByteBuffer byteBuffer=ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//循环读取客户端请求信息</span></span><br><span class="line">        StringBuffer sb=<span class="keyword">new</span> StringBuffer();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(socketChannel.read(byteBuffer) &gt;<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="comment">//切换buffer 到读模式</span></span><br><span class="line">            byteBuffer.flip();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//拼接字符串 转码</span></span><br><span class="line">            sb.append(Charset.forName(NioServer.CODE).decode(byteBuffer));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//再将 socketChannel 注册到 selector 中监听其他可读事件</span></span><br><span class="line">        socketChannel.register(selector,SelectionKey.OP_READ);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将客户端发过来的信息 广播出去</span></span><br><span class="line">        String result=sb.toString();</span><br><span class="line">        <span class="keyword">if</span>(result.length()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            System.out.println(<span class="string">"服务器响应信息:: "</span>+result);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>客户端 介绍了SocketChannel的基本使用 和 ByteBuffer的使用，完成了 往服务端发送数据以及读取服务端响应数据的功能。</p>
-<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://hman.fun/js/jsFile" type="text/javascript">
-<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://hman.fun/css/cssFile" rel="stylesheet" type="text/css"></script>
+<script attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://https.hman.fun//js/jsFile" type="text/javascript">
+<link attr1="value1" attr2="value2" attr3="value31 value32 value3n" src="http://https.hman.fun//css/cssFile" rel="stylesheet" type="text/css"></script>
     </article>
     <!-- license  -->
     
@@ -874,9 +874,69 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 17
+        Total : 19
         </div>
         <!-- search  -->
         
@@ -893,6 +953,16 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/01</span><a class="archive-post-title" href="/2019/09/01/wxPublic-wxTools-01/">java 开发微信公众号后台 之 使用wxTools框架</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/31</span><a class="archive-post-title" href="/2019/08/31/wxPublic-01/">java 开发微信公众号后台第一步：通过开发者验证</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -921,11 +991,6 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/swagger-springBoot-01/">Swagger 2.9 整合 SpringBoot 2.x  入门教程</a>
         </li>
     
@@ -936,17 +1001,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/jenkins-svn-SpringBoot-01/">Jenkins 3.x  + svn + SpringBoot 简单远程部署项目</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">05/11</span><a class="archive-post-title" href="/2019/05/11/mycat-01/">MYCAT入门（一）之下载、目录解析、根据枚举分片</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
         </li>
     
     
@@ -961,12 +1021,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/mysql-master-slave-01/">mysql5.5 配置 主从</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/linux-install-mysql-01/">linux CentOs7 安装 mysql5.5 (压缩包方式)</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/redis-lock-01/">SpringBoot + Redisson 基于redis 实现 分布式锁</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/10</span><a class="archive-post-title" href="/2019/05/10/zookeeper-lock-01/">Zookeeper + Java 实现 分布式锁</a>
         </li>
     
     
@@ -984,11 +1054,9 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
     
-        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
         <span class="sidebar-tag-name" data-tags="jenkins"><span class="iconfont-archer">&#xe606;</span>jenkins</span>
     
@@ -996,9 +1064,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="svn"><span class="iconfont-archer">&#xe606;</span>svn</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="mysql"><span class="iconfont-archer">&#xe606;</span>mysql</span>
     
-        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="nexus"><span class="iconfont-archer">&#xe606;</span>nexus</span>
     
@@ -1008,13 +1076,13 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="运维"><span class="iconfont-archer">&#xe606;</span>运维</span>
     
+        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
+    
+        <span class="sidebar-tag-name" data-tags="linux"><span class="iconfont-archer">&#xe606;</span>linux</span>
+    
         <span class="sidebar-tag-name" data-tags="redis"><span class="iconfont-archer">&#xe606;</span>redis</span>
     
         <span class="sidebar-tag-name" data-tags="分布式"><span class="iconfont-archer">&#xe606;</span>分布式</span>
-    
-        <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
-    
-        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
     
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
@@ -1022,15 +1090,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="echarts"><span class="iconfont-archer">&#xe606;</span>echarts</span>
     
-        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
-    
-        <span class="sidebar-tag-name" data-tags="mycat"><span class="iconfont-archer">&#xe606;</span>mycat</span>
+        <span class="sidebar-tag-name" data-tags="微信公众号"><span class="iconfont-archer">&#xe606;</span>微信公众号</span>
     
         <span class="sidebar-tag-name" data-tags="zookeeper"><span class="iconfont-archer">&#xe606;</span>zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="Zookeeper"><span class="iconfont-archer">&#xe606;</span>Zookeeper</span>
+    
+        <span class="sidebar-tag-name" data-tags="springBoot"><span class="iconfont-archer">&#xe606;</span>springBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="swagger"><span class="iconfont-archer">&#xe606;</span>swagger</span>
     
         <span class="sidebar-tag-name" data-tags="netty"><span class="iconfont-archer">&#xe606;</span>netty</span>
     
         <span class="sidebar-tag-name" data-tags="nio"><span class="iconfont-archer">&#xe606;</span>nio</span>
+    
+        <span class="sidebar-tag-name" data-tags="wxToolS"><span class="iconfont-archer">&#xe606;</span>wxToolS</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
